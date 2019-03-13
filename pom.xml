@@ -16,12 +16,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.graphhopper/directions-api-java-client -->
+        <!-- https://mvnrepository.com/artifact/com.graphhopper/directions-api-client -->
         <dependency>
             <groupId>com.graphhopper</groupId>
-            <artifactId>directions-api-java-client</artifactId>
-            <version>0.8.2-3</version>
+            <artifactId>directions-api-client</artifactId>
+            <version>0.10.1-4</version>
         </dependency>
+
 
 
     </dependencies>
