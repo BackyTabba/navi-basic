@@ -19,7 +19,7 @@ public class Routingexample {
         String key = System.getProperty("graphhopper.key", "603dac65-1037-453a-916f-fb788bebabf5");
         try {
             RouteResponse rsp = routing.routeGet(Arrays.asList("48.58467,11.57753", "48.572859,11.592464"), false, key,
-                    "en", true, "car", true, true, Arrays.<String>asList(), false,
+                    "de", true, "car", true, true, Arrays.<String>asList(), false,
                     "fastest", null, null, null, null, null,
                     null, null, null, null, null, null, null);
             RouteResponsePath path = rsp.getPaths().get(0);
