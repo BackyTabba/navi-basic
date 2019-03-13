@@ -14,6 +14,7 @@ public class Input{
     private String vehicle;
     private Route route = new Route();
 
+
     /*
     The Konstruktor asks and initializes the needed variables for the rout-computing in the external API, then it opens creates Test_API-object.
     @double x1, x2, y1, y2 should be the start(x1,y1) and the finish(x2,y2) coordinates.
@@ -35,8 +36,10 @@ public class Input{
 
         String start = startX + "," + startY;
         String destination = destinationX + "," + destinationY;
+        System.out.println(start);
+        System.out.println(destination);
 
-        Request(start, destination, this.vehicle);
+        Request request = new Request(start, destination, vehicle);
     }
 
     /*
