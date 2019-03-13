@@ -6,4 +6,11 @@ public class Input{
         this.y1=y1;
         this.y2=y2;
     }
+    /*
+    returns Array with values : [x1,x2,y1,y2]
+     */
+    public double[] getValues(){
+        double[] ruck = {x1,x2,y1,y2};
+        return ruck;
+    }
 }
