@@ -39,6 +39,8 @@ public class Input{
         //System.out.println(destination);      debuggmode only
 
         Request request = new Request(start, destination, vehicle);
+
+
     }
 
     /*

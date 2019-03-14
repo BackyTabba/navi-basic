@@ -1,12 +1,8 @@
 /*
 Needed archives are imported here.
 @java.util.ArrayList
-@java.util.List
  */
-import org.threeten.bp.format.DateTimeFormatter;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /*
 This Class Contains the route-detials wich are ejected to the user in the end.
@@ -37,8 +33,8 @@ public class Route {
         this.totalTime = pTotalTime;
         this.totalDistanceInMetres = pTotalDistanceInMetres;
         this.totalDistanceInKilometres = pTotalDistanceInKilometres;
-        System.out.println(this.totalDistanceInMetres + " is the distance in metres.");
-        System.out.println(this.totalTime + " is the total deeded time.");
+        //System.out.println(this.totalDistanceInMetres + " is the distance in metres.");       Debuggmode only
+        //System.out.println(this.totalTime + " is the total deeded time.");                    Debuggmode only
     }
 
     /*
