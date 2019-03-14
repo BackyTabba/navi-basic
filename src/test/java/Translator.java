@@ -1,4 +1,10 @@
+import com.graphhopper.directions.api.client.model.ResponseInstruction;
+import com.graphhopper.directions.api.client.model.ResponseInstructions;
 import com.graphhopper.directions.api.client.model.RouteResponse;
+import com.graphhopper.directions.api.client.model.RouteResponsePath;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Ein Klasse zur Realisierung von Translator Objekten.
@@ -7,7 +13,7 @@ import com.graphhopper.directions.api.client.model.RouteResponse;
 public class Translator {
 
      private RouteResponse rohroute;
-     private String translation;
+     private ArrayList<String> translation;
 
     /**
      * Der Konstruktor der Translator-Klasse anhand einer rohroute.
@@ -24,11 +30,21 @@ public class Translator {
     /**
      * Methode zur Erstellung einer Routenbeschreibung aus einem RouteResponse-Objekt.
      * @param rohroute Die rohroute als RouteResponse-Objekt
-     * @return Die Routenbeschreibung als String
+     * @return Die Routenbeschreibung als ArrayList mit String-Objekten
      */
-     public String translate(RouteResponse rohroute)
+     public ArrayList<String> translate(RouteResponse rohroute)
      {
-         System.out.println("Wir haben es geschafft!");
-         return null;
+         RouteResponsePath path = rohroute.getPaths().get(0);
+         ResponseInstructions instr = path.getInstructions();
+         ArrayList<String> translation = new ArrayList<String>();
+
+         for(int i = 0; i < instr.size(); i++)
+         {
+            translation.add(i, instr.get(i).getText());
+         }
+
+
+         System.out.println(translation);
+         return translation;
      }
 }
