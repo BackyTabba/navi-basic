@@ -25,6 +25,7 @@ public class Routingexample {
             RouteResponsePath path = rsp.getPaths().get(0);
             ResponseInstruction instr = path.getInstructions().get(0);
             System.out.println(instr.getText());
+            System.out.println(rsp.getPaths());
         } catch (ApiException ex) {
             System.out.println(ex.getResponseBody());
             throw new RuntimeException(ex);
