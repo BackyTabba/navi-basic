@@ -3,6 +3,8 @@ Needed archives are imported here.
 @java.util.ArrayList
 @java.util.List
  */
+import org.threeten.bp.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +15,28 @@ public class Route {
 
     /*
     Declaration and inizialisation of the needed variables
-    @List<String> RoutenStruktur will contain informations given about the route.
+    @List<String> routenStruktur will contain informations given in the konstruktor about the route.
+    @DateTimeFormater totalTime will contain informations given in the konstruktor about the time needed to travel the route.
+    @double totalDistanceInMeters will contain informations about the route total travel distance.
+    @double totalDistanceInKilometres will contain informations about the route total travel distance.
      */
-    private List<String> RoutenStruktur = new ArrayList<String>();
+    private List<String> routenStruktur;
+    private DateTimeFormatter totalTime;
+    private double totalDistanceInMetres;
+    private double totalDistanceInKilometres;
 
     /*
-    This is the Konstruktor. It does nothing.
+    This is the Konstruktor.
+    @List<String> routenStruktur should contain instruktions about the route.
+    @DateTimeFormater totalTime should be the time you need to travel the route.
+    @double totalDistanceInMeters should be the distance to travel to reach the destination in metres.
+    @double totalDistanceInKilometres should be the distance to travel to reach the destination in kilometres.
      */
-    public Route(){
-
+    public Route(List<String> pRoutenStruktur, DateTimeFormatter pTotalTime, double pTotalDistanceInMetres, double pTotalDistanceInKilometres){
+        this.routenStruktur = pRoutenStruktur;
+        this.totalTime = pTotalTime;
+        this.totalDistanceInMetres = pTotalDistanceInMetres;
+        this.totalDistanceInKilometres = pTotalDistanceInKilometres;
     }
 
     /*
@@ -29,13 +44,30 @@ public class Route {
     @return List<String> RoutenStruktur
      */
     public List<String> getRoutenStruktur(){
-        return RoutenStruktur;
+        return this.routenStruktur;
     }
+
     /*
-    Sets the RoutenStruktur.
-    @List<String> pRoutenStrukur the RoutenStruktur to set.
+    Returns totaltime.
+    @return DateTimeFormatter totalTime
      */
-    public void setRoutenStruktur(List<String> pRoutenStruktur){
-        this.RoutenStruktur = pRoutenStruktur;
+    public DateTimeFormatter totalTime(){
+        return this.totalTime;
+    }
+
+    /*
+    Returns totalDistanceInMetres.
+    @return double totelDistanceInMetres
+     */
+    public double totelDistanceInMetres(){
+        return this.totalDistanceInMetres;
+    }
+
+    /*
+    Returns totalDistanceInKilometres.
+    @return double totelDistanceInKilometres
+     */
+    public double totelDistanceInKilometres(){
+        return this.totalDistanceInKilometres;
     }
 }

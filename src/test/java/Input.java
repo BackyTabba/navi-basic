@@ -12,7 +12,6 @@ public class Input{
      */
     private double x1,x2,y1,y2;
     private String vehicle;
-    private Route route = new Route();
 
 
     /*
