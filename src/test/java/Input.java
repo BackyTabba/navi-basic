@@ -35,8 +35,8 @@ public class Input{
 
         String start = startX + "," + startY;
         String destination = destinationX + "," + destinationY;
-        System.out.println(start);
-        System.out.println(destination);
+        //System.out.println(start);            debuggmode only
+        //System.out.println(destination);      debuggmode only
 
         Request request = new Request(start, destination, vehicle);
     }

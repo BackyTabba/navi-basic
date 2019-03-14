@@ -20,8 +20,8 @@ public class Route {
     @double totalDistanceInMeters will contain informations about the route total travel distance.
     @double totalDistanceInKilometres will contain informations about the route total travel distance.
      */
-    private List<String> routenStruktur;
-    private DateTimeFormatter totalTime;
+    private ArrayList<String> routenStruktur;
+    private double totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
 
@@ -32,18 +32,20 @@ public class Route {
     @double totalDistanceInMeters should be the distance to travel to reach the destination in metres.
     @double totalDistanceInKilometres should be the distance to travel to reach the destination in kilometres.
      */
-    public Route(List<String> pRoutenStruktur, DateTimeFormatter pTotalTime, double pTotalDistanceInMetres, double pTotalDistanceInKilometres){
+    public Route(ArrayList<String> pRoutenStruktur, double pTotalTime, double pTotalDistanceInMetres, double pTotalDistanceInKilometres){
         this.routenStruktur = pRoutenStruktur;
         this.totalTime = pTotalTime;
         this.totalDistanceInMetres = pTotalDistanceInMetres;
         this.totalDistanceInKilometres = pTotalDistanceInKilometres;
+        System.out.println(this.totalDistanceInMetres + " is the distance in metres.");
+        System.out.println(this.totalTime + " is the total deeded time.");
     }
 
     /*
     Returns RoutenStruktur.
-    @return List<String> RoutenStruktur
+    @return ArrayList<String> RoutenStruktur
      */
-    public List<String> getRoutenStruktur(){
+    public ArrayList<String> getRoutenStruktur(){
         return this.routenStruktur;
     }
 
@@ -51,7 +53,7 @@ public class Route {
     Returns totaltime.
     @return DateTimeFormatter totalTime
      */
-    public DateTimeFormatter totalTime(){
+    public double totalTime(){
         return this.totalTime;
     }
 

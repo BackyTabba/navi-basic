@@ -52,7 +52,7 @@ public class Request {
 
         try {
             RouteResponse result = apiInstance.routeGet(point, false, key, "de", true, vehicle, true, true, Arrays.<String>asList(), false, "fastest", null, null, null, null, null,null,null, null, null, null, null,null);
-            System.out.println(result);
+            //System.out.println(result);
             return result;
 
         } catch (ApiException e) {
