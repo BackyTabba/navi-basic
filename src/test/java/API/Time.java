@@ -35,6 +35,11 @@ public class Time {
      * @return String
      */
     public String getTime(){
-        return Math.round(getHours()) + ":" + Math.round(getMinutes()%(getHours()*60)) + ":" + Math.round((getSeconds()%(getMinutes()*60)));
+        if(Math.round(getHours()) != 0 && Math.round(getHours()) != 0)
+            return Math.round(getHours()) + ":" + Math.round(getMinutes()%(getHours()*60)) + ":" + Math.round((getSeconds()%(getMinutes()*60)));
+        else if(Math.round(getHours()) != 0)
+            return Math.round(getMinutes()) + ":" + Math.round(getSeconds());
+        else
+            return "" + Math.round(getSeconds());
     }
 }
