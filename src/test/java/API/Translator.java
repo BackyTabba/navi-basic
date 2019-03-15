@@ -4,7 +4,15 @@ import com.graphhopper.directions.api.client.model.ResponseInstructions;
 import com.graphhopper.directions.api.client.model.RouteResponse;
 import com.graphhopper.directions.api.client.model.RouteResponsePath;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+
 import java.util.ArrayList;
+import java.util.Date;
+
+
+
 
 /**
  * This class computes the RouteResponse to a usable format.
@@ -19,7 +27,7 @@ public class Translator {
      public Translator(APIOutput route, RouteResponse rohroute)
      {
          route.setRoutenStruktur(translateInstructions(rohroute));
-         route.setTotalTime(translateTotalTimeInMinutes(rohroute));
+         route.setTotalTimeAsDate(translateTotalTimeAsDate(rohroute));
          route.setTotalDistanceInMetres(translateTotalDistanceInMetres(rohroute));
          route.setTotalDistanceInKilometres(translateTotalDistanceInKilometres(rohroute));
      }
@@ -50,10 +58,11 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API.
      * @return double will be the amount of needed minutes to travel the route.
      */
-     public double translateTotalTimeInMinutes(RouteResponse rohroute){
+     public Date translateTotalTimeAsDate(RouteResponse rohroute){
 
-        RouteResponsePath path = rohroute.getPaths().get(0);
-        return path.getTime()/60000;
+         RouteResponsePath path = rohroute.getPaths().get(0);
+         Date result = new Date(path.getTime().longValue());
+         return result;
      }
 
     /**
