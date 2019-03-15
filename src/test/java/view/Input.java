@@ -47,17 +47,24 @@ public class Input {
         if (eingabe.equals("exec")||eingabe.equals("")) {
                 UserInteraction anfrage = new UserInteraction( start, ziel, fahrzeug);
                 APIOutput Route =anfrage.getOutput();
-                System.out.print("Wegbeschreibung: ");
+                System.out.println("Wegbeschreibung: ");
+
                 //System.out.println(Route.getRoutenStruktur());
 
                 for(int i=0;i<Route.getRoutenStruktur().size()-1;i++){
-                    System.out.println("");
+                    String a = i+":";
+                    String b = Route.getStrukturdistance().get(i).intValue()+" m";
+                    String c = Route.getStrukturtime().get(i).getTime();
+                    String d = "    "+Route.getRoutenStruktur().get(i);
+
+                    System.out.printf("%-10s %10s %15s %-10s \n" , a, b, c, d);
+                    //System.out.println("");
 
                     //System.out.print("Weg in Meter:");
-                    System.out.print(i+":   ");
-                    System.out.print("   "+Route.getStrukturdistance().get(i).intValue()+" m");
-                    System.out.print("   "+Route.getStrukturtime().get(i).getTime());
-                    System.out.print("   "+Route.getRoutenStruktur().get(i));
+                    //System.out.print(i+":   ");
+                    //System.out.print("   "+Route.getStrukturdistance().get(i).intValue()+" m");
+                    //System.out.print("   "+Route.getStrukturtime().get(i).longValue());
+                    //System.out.print("   "+Route.getRoutenStruktur().get(i));
                 }
             System.out.println("");
             System.out.println(Route.getRoutenStruktur().get(Route.getRoutenStruktur().size()-1));
