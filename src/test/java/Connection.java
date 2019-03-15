@@ -6,46 +6,29 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Eine Klasse zur Realisierung von Request-Objekten.
- * Ein Request-Objekt wird durch die Anagbe eines Starts, eines Ziels, eines Fahrzeuges sowie einer Response instantiiert.
+ * The class Connection calls the external API Graph hopper and creates a Translator object, giving the answer to it.
  */
 public class Connection {
 
-    private String start;
-    private String ziel;
-    private String fahrzeug;
-    private RouteResponse response;
-
-
-
     /**
-     * Der Konstruktor der Request-Klasse anhand eines Starts, eines Ziels und eines Fahrzeugs.
-     * Zusaetzlich wird der Response Wert des Objektes mit der Methode anfrage generiert.
-     * Und es wir ein Translator mit dieser Response instantiiert.
-     * @param start Der Start-Wert des Request-Objektes als String
-     * @param ziel Der Ziel-Wert des Request-Objektes als String
-     * @param fahrzeug Der fahrzeug-Wert des Request-Objektes als String
+     * The konstruktor creates a Translator object and calls the class anfrage.
+     * @APIOutput route should be the APIRoute object created in UserInteraction.
+     * @String start should be the coordinates of the starting point.
+     * @String ziel should be the coordinates of the destination point.
+     * @String fahrzeug should be the vehicle you are using.
      */
     public Connection(APIOutput route, String start, String ziel, String fahrzeug)
     {
-        this.start    = start;
-        this.ziel     = ziel;
-        this.fahrzeug = fahrzeug;
-
-        this.response = anfrage(start, ziel, fahrzeug);
-
-        Translator translator = new Translator(route, this.response);
-
-
+        Translator translator = new Translator(route, anfrage(start, ziel, fahrzeug));
     }
 
 
     /**
-     * Eine Methode welche der Graphhoppper API eine Anfrage über die schnellste Route zwischen zwei Koordinaten mit beliebigem Fortbewegungsmittel auf Deutsch.
-     * @param punkt1 Der Startpunkt im Koordinatenformat(Breitengrad, Laengengrad) der Route als String
-     * @param punkt2 Der Zielpunkt im Koordinatenformat(Breitengrad, Laengengrad) der Route als String
-     * @param fortbewegung Die gewuenschte Fortbewegungsmethode als String in der Abkuerzungformat der Graphhopper API
-     * @return Die gesuchte Route als RouteResponse Objekt
+     * This Method calls the external API Graph Hopper to compute given arguments.
+     * @param punkt1 should be the starting point.
+     * @param punkt2 should be the destination point.
+     * @param fortbewegung should be the vehicle used for the route.
+     * @return RouteResponse will be an object returned by the external API.
      */
     public RouteResponse anfrage( String punkt1, String punkt2, String fortbewegung ){
 
@@ -56,7 +39,6 @@ public class Connection {
 
         try {
             RouteResponse result = apiInstance.routeGet(point, false, key, "de", true, vehicle, true, true, Arrays.<String>asList(), false, "fastest", null, null, null, null, null,null,null, null, null, null, null,null);
-            //System.out.println(result);
             return result;
 
         } catch (ApiException e) {

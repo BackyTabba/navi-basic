@@ -1,20 +1,16 @@
-/*
-Needed archives are imported here.
-@java.util.ArrayList
- */
 import java.util.ArrayList;
 
-/*
-This Class Contains the route-detials wich are ejected to the user in the end.
+/**
+ * This class contains all informations about the route.
  */
 public class APIOutput {
 
-    /*
-    Declaration and inizialisation of the needed variables
-    @List<String> routenStruktur will contain informations given in the konstruktor about the route.
-    @DateTimeFormater totalTime will contain informations given in the konstruktor about the time needed to travel the route.
-    @double totalDistanceInMeters will contain informations about the route total travel distance.
-    @double totalDistanceInKilometres will contain informations about the route total travel distance.
+    /**
+     * Needed Variables are declarated here.
+     * @routenStruktur will contain instructions to travel the route.
+     * @totalTime will be the total amount of minutes needed to travel the route.
+     * @totalDistanceInMetres will contain the total amount of metres needed to travel the route.
+     * @totalDistanceInKilometres will contain the total amount of kilometres needed to travel the route.
      */
     private ArrayList<String> routenStruktur;
     private double totalTime;
@@ -22,13 +18,8 @@ public class APIOutput {
     private double totalDistanceInKilometres;
 
 
-
-    /*
-    This is the "Konstruktor".
-    @List<String> routenStruktur should contain instruktions about the route.
-    @DateTimeFormater totalTime should be the time you need to travel the route.
-    @double totalDistanceInMeters should be the distance to travel to reach the destination in metres.
-    @double totalDistanceInKilometres should be the distance to travel to reach the destination in kilometres.
+    /**
+     * The konstructor do nothing.
      */
     public APIOutput(){}
 

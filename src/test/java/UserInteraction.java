@@ -1,14 +1,13 @@
-/*
-The Class Input stores the userinput given to run the API
+/**
+ * The Class UserInteraction stores the userinput given to run the API.
+ * Then it creates an APIOutput Object and finaly creates an Connection object, giving all informations with it.
  */
 public class UserInteraction{
 
-    /*
-    Deklarierung der Variablen und Objekte
-    Deklaration and initialisation of needed variables and objects.
-    @double x1, x2, y1, y2 are Coordinates witch will be set in the Konstruktor.
-    @Route route is the Route-object, witch will be dragged through the Programm and ejected at the End.
-    @vehicle will be the used vehicle.
+    /**
+    * Declaration of needed Objects and Variables
+    * @double x1, x2, y1, y2 are Coordinates witch will be set in the Konstruktor.
+    * @vehicle will be the used vehicle.
      */
     private double x1,x2,y1,y2;
     private String vehicle;
@@ -16,10 +15,10 @@ public class UserInteraction{
 
 
 
-    /*
-    The class inputWithVehicle asks and initializes the needed variables for the rout-computing in the external API, then it opens creates Test_API-object.
-    @double x1, x2, y1, y2 should be the start(x1,y1) and the finish(x2,y2) coordinates.
-    @String vehicle should be the used vehicle.
+    /**
+    * The konstruktor creates all needed variables, creates an APIOutput Object and reaches everything to the finaly created Connection object.
+    * @double x1, x2, y1, y2 should be the start(x1,y1) and the finish(x2,y2) coordinates.
+    * @String vehicle should be the used vehicle.
      */
     public UserInteraction(double x1, double x2, double y1, double y2, String vehicle){
         this.x1=x1;
@@ -45,14 +44,5 @@ public class UserInteraction{
         Connection request = new Connection(route, start, destination, vehicle);
 
 
-    }
-
-    /*
-    Returns Array with values : {x1,x2,y1,y2}
-    @return double {x1,x2,y1,y2}
-     */
-    public double[] getValues(){
-        double[] ruck = {x1,x2,y1,y2};
-        return ruck;
     }
 }

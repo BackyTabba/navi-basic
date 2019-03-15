@@ -2,8 +2,12 @@ public class main {
 public main(){
 
 
-    /*
-    Erstellt ein Input Objekt. Das Input Objekt ruft Request auf. Request ruft Translator auf. Translator ruft Route auf. Route ist das Ergebnis.
+    /**
+     *Erstellt ein UserInteraction Objekt.
+     *Das UserInteraction Objekt erstellt ein APIOutput Objekt, das es zusammen mit alles Parametern an Connection weiterreicht.
+     *Connection ruft Translator auf.
+     *Translator uebersetzt die Antwort der externen API und fuellt APIOutput ueber die setter Methoden.
+     *UserInteraction kennt die ganze Zeit das APIOutput Objekt, darum kann die Klasse das auch zurueck geben.
      */
     }
     public static void main(String[] args){
