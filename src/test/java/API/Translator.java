@@ -65,10 +65,10 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API.
      * @return double will be the amount of needed minutes to travel the route.
      */
-     public Date translateTotalTimeAsDate(RouteResponse rohroute){
+     public Time translateTotalTimeAsDate(RouteResponse rohroute){
 
          RouteResponsePath path = rohroute.getPaths().get(0);
-         Date result = new Date(path.getTime().longValue());
+         Time result = new Time(path.getTime().longValue());
          return result;
      }
 

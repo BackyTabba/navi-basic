@@ -18,7 +18,7 @@ public class APIOutput {
     private ArrayList<String> routenStruktur;
     private ArrayList<Double> strukturdistance;
     private ArrayList<Integer> strukturtime;
-    private Date totalTime;
+    private Time totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
 
@@ -64,7 +64,7 @@ public class APIOutput {
     *Returns totaltime.
     *@return double totalTime
      */
-    public Date getTotalTime(){
+    public Time getTotalTime(){
         return this.totalTime;
     }
 
@@ -72,7 +72,7 @@ public class APIOutput {
      * Sets totalTime.
      * @double totalTime
      */
-    public void setTotalTimeAsDate(Date pTotalTime){
+    public void setTotalTimeAsDate(Time pTotalTime){
         this.totalTime = pTotalTime;
     }
 
