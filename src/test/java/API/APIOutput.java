@@ -16,6 +16,8 @@ public class APIOutput {
      * @totalDistanceInKilometres will contain the total amount of kilometres needed to travel the route.
      */
     private ArrayList<String> routenStruktur;
+    private ArrayList<Double> strukturdistance;
+    private ArrayList<Integer> strukturtime;
     private Date totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
@@ -40,6 +42,22 @@ public class APIOutput {
      */
     public void setRoutenStruktur(ArrayList<String> pRoutenStruktur){
         this.routenStruktur = pRoutenStruktur;
+    }
+
+    public ArrayList<Double> getStrukturdistance() {
+        return strukturdistance;
+    }
+
+    public void setStrukturdistance(ArrayList<Double> strukturdistance) {
+        this.strukturdistance = strukturdistance;
+    }
+
+    public ArrayList<Integer> getStrukturtime() {
+        return strukturtime;
+    }
+
+    public void setStrukturtime(ArrayList<Integer> strukturtime) {
+        this.strukturtime = strukturtime;
     }
 
     /**
