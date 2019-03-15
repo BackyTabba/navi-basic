@@ -8,9 +8,11 @@ public class UserInteraction{
     * Declaration of needed Objects and Variables
     * @double x1, x2, y1, y2 are Coordinates witch will be set in the Konstruktor.
     * @vehicle will be the used vehicle.
+     * @route will be an empty APIOutput object witch will be filled in Translator.
      */
     private double x1,x2,y1,y2;
     private String vehicle;
+    APIOutput route = new APIOutput();
 
 
 
@@ -39,10 +41,17 @@ public class UserInteraction{
         //System.out.println(start);            debuggmode only
         //System.out.println(destination);      debuggmode only
 
-        APIOutput route = new APIOutput();
-
-        Connection request = new Connection(route, start, destination, vehicle);
 
 
+        Connection request = new Connection(this.route, start, destination, vehicle);
+        //System.out.println(route.getTotalDistanceInMetres() + " wer mich liest hat es geschafft!");
+
+    }
+
+    /**
+     * @return APIOutput will be the calculated route.
+     */
+    public APIOutput getOutput(){
+        return route;
     }
 }
