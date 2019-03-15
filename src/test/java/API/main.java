@@ -13,6 +13,15 @@ public main(){
      */
     }
     public static void main(String[] args){
-        UserInteraction userInteraction = new UserInteraction(51.960447, 51.964801, 7.581380, 7.599747, "car");
+
+        Long mil = 7506000L;
+        Time time = new Time(mil);
+        System.out.println(time.getHours());
+        System.out.println(time.getMinutes());
+        System.out.println(time.getSeconds());
+        System.out.println(time.getMilliseconds());
+        System.out.println(time.getTime());
+
+
     }
 }

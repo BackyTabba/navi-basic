@@ -18,15 +18,23 @@ public class Time {
         return timeInMs/1000;
     }
 
-    public double getMinutes(){
+    public Long getMinutes(){
         return timeInMs/60000;
     }
 
-    public double getHours(){
+    public Long getHours(){
         return timeInMs/3600000;
     }
 
-    public double getDays(){
+    public Long getDays(){
         return timeInMs/86400000;
+    }
+
+    /**
+     * Returns String in an individual Timeformat.
+     * @return String
+     */
+    public String getTime(){
+        return Math.round(getHours()) + ":" + Math.round(getMinutes()%(getHours()*60)) + ":" + Math.round((getSeconds()%(getMinutes()*60)));
     }
 }
