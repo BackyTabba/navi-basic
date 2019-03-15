@@ -4,9 +4,7 @@ import com.graphhopper.directions.api.client.model.ResponseInstructions;
 import com.graphhopper.directions.api.client.model.RouteResponse;
 import com.graphhopper.directions.api.client.model.RouteResponsePath;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,31 +24,40 @@ public class Translator {
      */
      public Translator(APIOutput route, RouteResponse rohroute)
      {
-         route.setRoutenStruktur(translateInstructions(rohroute));
+         translateInstructions(route, rohroute);
          route.setTotalTimeAsDate(translateTotalTimeAsDate(rohroute));
          route.setTotalDistanceInMetres(translateTotalDistanceInMetres(rohroute));
          route.setTotalDistanceInKilometres(translateTotalDistanceInKilometres(rohroute));
      }
+
+
 
     /**
      * This method dragges the instructions out of RouteResponse.
      * @param rohroute should be the RouteResponse object given by the external API.
      * @return ArrayList<String> will be the dragged out ArrayList.
       */
-     public ArrayList<String> translateInstructions(RouteResponse rohroute)
+     public void translateInstructions(APIOutput route,RouteResponse rohroute)
      {
          RouteResponsePath path = rohroute.getPaths().get(0);
          ResponseInstructions instr = path.getInstructions();
-         ArrayList<String> translation = new ArrayList<String>();
+         ArrayList<String> EText = new ArrayList<String>();
+         ArrayList<Integer> EZeit = new ArrayList<Integer>();
+         ArrayList<Double> EWeg = new ArrayList<Double>();
 
          for(int i = 0; i < instr.size(); i++)
          {
-            translation.add(i, instr.get(i).getText());
-         }
+            EText.add(i, instr.get(i).getText());
+            EWeg.add(i, instr.get(i).getDistance());
+            EZeit.add(i, instr.get(i).getTime());
 
+         }
+         route.setRoutenStruktur(EText);
+         route.setStrukturdistance(EWeg);
+         route.setStrukturtime(EZeit);
 
          //System.out.println(translation); debugging only
-         return translation;
+
      }
 
     /**
