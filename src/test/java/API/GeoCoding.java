@@ -1,3 +1,5 @@
+package API;
+
 import com.graphhopper.directions.api.client.ApiException;
 import com.graphhopper.directions.api.client.api.GeocodingApi;
 import com.graphhopper.directions.api.client.model.GeocodingLocation;
@@ -26,7 +28,7 @@ private static double breite=1000,lang=1000;
         return lang;
     }
 
-    public static void geocode(String q)
+    public static String geocode(String q)
 
     {
         GeocodingApi apiInstance = new GeocodingApi();
@@ -41,17 +43,20 @@ private static double breite=1000,lang=1000;
             GeocodingResponse result = apiInstance.geocodeGet(key, q, locale, limit, reverse, point, provider);
 
             GeocodingPoint punkt =result.getHits().get(0).getPoint();
-            GeoCoding.breite=punkt.getLat();
-            GeoCoding.lang=punkt.getLng();
+            String coordinates =punkt.toString();
 
-            System.out.println(result.getHits().size());
-            for(GeocodingLocation g : result.getHits()){
-                System.out.println(g.getName() +" : "+  g.getPoint().getLat()+","+g.getPoint().getLng());
-            }
-            System.out.println(result.getHits().get(0).getCity()+" "+breite+","+lang);
+            return coordinates;
+
+            //System.out.println(result.getHits().size());
+            //for(GeocodingLocation g : result.getHits()){
+                //System.out.println(g.getName() +" : "+  g.getPoint().getLat()+","+g.getPoint().getLng());
+            //}
+            //System.out.println(result.getHits().get(0).getCity()+" "+breite+","+lang);
         } catch (ApiException e) {
             System.err.println("Exception when calling GeocodingApi#geocodeGet");
             e.printStackTrace();
+            return "";
         }
+
     }
 }

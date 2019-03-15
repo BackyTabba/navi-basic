@@ -1,3 +1,5 @@
+package API;
+
 import com.graphhopper.directions.api.client.ApiException;
 import com.graphhopper.directions.api.client.api.RoutingApi;
 import com.graphhopper.directions.api.client.model.RouteResponse;
@@ -6,13 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * The class Connection calls the external API Graph hopper and creates a Translator object, giving the answer to it.
+ * The class API.Connection calls the external API Graph hopper and creates a API.Translator object, giving the answer to it.
  */
 public class Connection {
 
     /**
-     * The konstruktor creates a Translator object and calls the class anfrage.
-     * @APIOutput route should be the APIRoute object created in UserInteraction.
+     * The konstruktor creates a API.Translator object and calls the class anfrage.
+     * @APIOutput route should be the APIRoute object created in API.UserInteraction.
      * @String start should be the coordinates of the starting point.
      * @String ziel should be the coordinates of the destination point.
      * @String fahrzeug should be the vehicle you are using.

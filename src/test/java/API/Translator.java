@@ -1,3 +1,5 @@
+package API;
+
 import com.graphhopper.directions.api.client.model.ResponseInstructions;
 import com.graphhopper.directions.api.client.model.RouteResponse;
 import com.graphhopper.directions.api.client.model.RouteResponsePath;
@@ -10,8 +12,8 @@ import java.util.ArrayList;
 public class Translator {
 
     /**
-     * The konstructor calls methods of his own class and fills the APIOutput object with the results.
-     * @param route should be the APIOutput object witch is createt in UserInteraction.
+     * The konstructor calls methods of his own class and fills the API.APIOutput object with the results.
+     * @param route should be the API.APIOutput object witch is createt in API.UserInteraction.
      * @param rohroute should be the RouteResponse object, given by the external API.
      */
      public Translator(APIOutput route, RouteResponse rohroute)

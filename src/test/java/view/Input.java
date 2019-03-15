@@ -3,6 +3,7 @@ package view;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
+
 public class Input {
 
     private String start,ziel,fahrzeug;
