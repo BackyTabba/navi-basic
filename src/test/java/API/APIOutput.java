@@ -1,6 +1,7 @@
 package API;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * This class contains all informations about the route.
@@ -15,7 +16,7 @@ public class APIOutput {
      * @totalDistanceInKilometres will contain the total amount of kilometres needed to travel the route.
      */
     private ArrayList<String> routenStruktur;
-    private double totalTime;
+    private Date totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
 
@@ -45,7 +46,7 @@ public class APIOutput {
     *Returns totaltime.
     *@return double totalTime
      */
-    public double getTotalTime(){
+    public Date getTotalTime(){
         return this.totalTime;
     }
 
@@ -53,7 +54,7 @@ public class APIOutput {
      * Sets totalTime.
      * @double totalTime
      */
-    public void setTotalTime(double pTotalTime){
+    public void setTotalTimeAsDate(Date pTotalTime){
         this.totalTime = pTotalTime;
     }
 
