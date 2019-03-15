@@ -56,7 +56,7 @@ public class Input {
                     //System.out.print("Weg in Meter:");
                     System.out.print(i+":   ");
                     System.out.print("   "+Route.getStrukturdistance().get(i).intValue()+" m");
-                    System.out.print("   "+Route.getStrukturtime().get(i).longValue());
+                    System.out.print("   "+Route.getStrukturtime().get(i).getTime());
                     System.out.print("   "+Route.getRoutenStruktur().get(i));
                 }
             System.out.println("");
@@ -65,7 +65,7 @@ public class Input {
                 System.out.println(Route.getTotalDistanceInMetres());
                 System.out.print("Distanz in Kilometer: ");
                 System.out.println(Route.getTotalDistanceInKilometres());
-                System.out.print("Zeit in Minuten: ");
+                System.out.print("Reisezeit: ");
                 System.out.println(Route.getTotalTime().getTime());
         }
     if (eingabe.equals("help start")){

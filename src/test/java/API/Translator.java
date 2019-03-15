@@ -42,14 +42,14 @@ public class Translator {
          RouteResponsePath path = rohroute.getPaths().get(0);
          ResponseInstructions instr = path.getInstructions();
          ArrayList<String> EText = new ArrayList<String>();
-         ArrayList<Integer> EZeit = new ArrayList<Integer>();
+         ArrayList<Time> EZeit = new ArrayList<Time>();
          ArrayList<Double> EWeg = new ArrayList<Double>();
 
          for(int i = 0; i < instr.size(); i++)
          {
             EText.add(i, instr.get(i).getText());
             EWeg.add(i, instr.get(i).getDistance());
-            EZeit.add(i, instr.get(i).getTime());
+            EZeit.add(i, new Time(instr.get(i).getTime().longValue()));
 
          }
          route.setRoutenStruktur(EText);

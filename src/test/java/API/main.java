@@ -14,7 +14,7 @@ public main(){
     }
     public static void main(String[] args){
 
-        Long mil = 7506000L;
+        Long mil = 1040701L;
         Time time = new Time(mil);
         System.out.println(time.getHours());
         System.out.println(time.getMinutes());

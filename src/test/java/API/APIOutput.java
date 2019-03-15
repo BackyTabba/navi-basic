@@ -17,7 +17,7 @@ public class APIOutput {
      */
     private ArrayList<String> routenStruktur;
     private ArrayList<Double> strukturdistance;
-    private ArrayList<Integer> strukturtime;
+    private ArrayList<Time> strukturtime;
     private Time totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
@@ -52,11 +52,11 @@ public class APIOutput {
         this.strukturdistance = strukturdistance;
     }
 
-    public ArrayList<Integer> getStrukturtime() {
+    public ArrayList<Time> getStrukturtime() {
         return strukturtime;
     }
 
-    public void setStrukturtime(ArrayList<Integer> strukturtime) {
+    public void setStrukturtime(ArrayList<Time> strukturtime) {
         this.strukturtime = strukturtime;
     }
 
