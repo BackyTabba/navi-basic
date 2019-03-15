@@ -19,6 +19,8 @@ public class Translator {
      private double totalDistanceInMetres;
      private double totalDistanceInKilometres;
 
+
+
     /**
      * Der Konstruktor der Translator-Klasse anhand einer rohroute.
      * Zudem wird das translation-Attribut des Objektes durch die Translate-Methode erzeugt.

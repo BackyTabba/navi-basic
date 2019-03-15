@@ -21,8 +21,10 @@ public class Route {
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
 
+
+
     /*
-    This is the Konstruktor.
+    This is the "Konstruktor".
     @List<String> routenStruktur should contain instruktions about the route.
     @DateTimeFormater totalTime should be the time you need to travel the route.
     @double totalDistanceInMeters should be the distance to travel to reach the destination in metres.

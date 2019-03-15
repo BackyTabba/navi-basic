@@ -14,12 +14,14 @@ public class Input{
     private String vehicle;
 
 
+
+
     /*
-    The Konstruktor asks and initializes the needed variables for the rout-computing in the external API, then it opens creates Test_API-object.
+    The class inputWithVehicle asks and initializes the needed variables for the rout-computing in the external API, then it opens creates Test_API-object.
     @double x1, x2, y1, y2 should be the start(x1,y1) and the finish(x2,y2) coordinates.
     @String vehicle should be the used vehicle.
      */
-    public Input (double x1, double x2, double y1, double y2, String vehicle){
+    public Input(double x1, double x2, double y1, double y2, String vehicle){
         this.x1=x1;
         this.x2=x2;
         this.y1=y1;

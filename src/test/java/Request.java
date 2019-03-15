@@ -16,6 +16,8 @@ public class Request {
     private String fahrzeug;
     private RouteResponse response;
 
+
+
     /**
      * Der Konstruktor der Request-Klasse anhand eines Starts, eines Ziels und eines Fahrzeugs.
      * Zusaetzlich wird der Response Wert des Objektes mit der Methode anfrage generiert.
@@ -33,6 +35,8 @@ public class Request {
         this.response = anfrage(start, ziel, fahrzeug);
 
         Translator translator = new Translator(this.response);
+
+
     }
 
 
