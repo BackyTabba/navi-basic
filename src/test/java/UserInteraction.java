@@ -38,13 +38,10 @@ public class UserInteraction{
 
         String start = startX + "," + startY;
         String destination = destinationX + "," + destinationY;
-        //System.out.println(start);            debuggmode only
-        //System.out.println(destination);      debuggmode only
 
 
 
         Connection request = new Connection(this.route, start, destination, vehicle);
-        //System.out.println(route.getTotalDistanceInMetres() + " wer mich liest hat es geschafft!");
 
     }
 
