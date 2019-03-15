@@ -5,14 +5,17 @@ import com.graphhopper.directions.api.client.model.GeocodingPoint;
 import com.graphhopper.directions.api.client.model.GeocodingResponse;
 
 
-
-public class Beispiel_GeoCoding {
+/**
+ *
+ *
+ */
+public class GeoCoding {
 
 private static double breite=1000,lang=1000;
 
     public static void main(String[] args)
     {
-        geocode("Münster, Heisenbergstraße 2, 48149");
+        geocode("Münster");
     }
 
     public static double getBreite() {
@@ -38,8 +41,8 @@ private static double breite=1000,lang=1000;
             GeocodingResponse result = apiInstance.geocodeGet(key, q, locale, limit, reverse, point, provider);
 
             GeocodingPoint punkt =result.getHits().get(0).getPoint();
-            Beispiel_GeoCoding.breite=punkt.getLat();
-            Beispiel_GeoCoding.lang=punkt.getLng();
+            GeoCoding.breite=punkt.getLat();
+            GeoCoding.lang=punkt.getLng();
 
             System.out.println(result.getHits().size());
             for(GeocodingLocation g : result.getHits()){
