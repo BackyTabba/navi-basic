@@ -1,7 +1,7 @@
 /*
 The Class Input stores the userinput given to run the API
  */
-public class Input{
+public class UserInteraction{
 
     /*
     Deklarierung der Variablen und Objekte
@@ -21,7 +21,7 @@ public class Input{
     @double x1, x2, y1, y2 should be the start(x1,y1) and the finish(x2,y2) coordinates.
     @String vehicle should be the used vehicle.
      */
-    public Input(double x1, double x2, double y1, double y2, String vehicle){
+    public UserInteraction(double x1, double x2, double y1, double y2, String vehicle){
         this.x1=x1;
         this.x2=x2;
         this.y1=y1;
@@ -40,7 +40,9 @@ public class Input{
         //System.out.println(start);            debuggmode only
         //System.out.println(destination);      debuggmode only
 
-        Request request = new Request(start, destination, vehicle);
+        APIOutput route = new APIOutput();
+
+        Connection request = new Connection(route, start, destination, vehicle);
 
 
     }

@@ -9,7 +9,7 @@ import java.util.List;
  * Eine Klasse zur Realisierung von Request-Objekten.
  * Ein Request-Objekt wird durch die Anagbe eines Starts, eines Ziels, eines Fahrzeuges sowie einer Response instantiiert.
  */
-public class Request {
+public class Connection {
 
     private String start;
     private String ziel;
@@ -26,7 +26,7 @@ public class Request {
      * @param ziel Der Ziel-Wert des Request-Objektes als String
      * @param fahrzeug Der fahrzeug-Wert des Request-Objektes als String
      */
-    public Request(String start, String ziel, String fahrzeug)
+    public Connection(APIOutput route, String start, String ziel, String fahrzeug)
     {
         this.start    = start;
         this.ziel     = ziel;
@@ -34,7 +34,7 @@ public class Request {
 
         this.response = anfrage(start, ziel, fahrzeug);
 
-        Translator translator = new Translator(this.response);
+        Translator translator = new Translator(route, this.response);
 
 
     }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /*
 This Class Contains the route-detials wich are ejected to the user in the end.
  */
-public class Route {
+public class APIOutput {
 
     /*
     Declaration and inizialisation of the needed variables
@@ -30,44 +30,71 @@ public class Route {
     @double totalDistanceInMeters should be the distance to travel to reach the destination in metres.
     @double totalDistanceInKilometres should be the distance to travel to reach the destination in kilometres.
      */
-    public Route(ArrayList<String> pRoutenStruktur, double pTotalTime, double pTotalDistanceInMetres, double pTotalDistanceInKilometres){
-        this.routenStruktur = pRoutenStruktur;
-        this.totalTime = pTotalTime;
-        this.totalDistanceInMetres = pTotalDistanceInMetres;
-        this.totalDistanceInKilometres = pTotalDistanceInKilometres;
-        //System.out.println(this.totalDistanceInMetres + " is the distance in metres.");       Debuggmode only
-        //System.out.println(this.totalTime + " is the total deeded time.");                    Debuggmode only
-    }
+    public APIOutput(){}
 
-    /*
-    Returns RoutenStruktur.
-    @return ArrayList<String> RoutenStruktur
+    /**
+    *Returns RoutenStruktur.
+    *@return ArrayList<String> RoutenStruktur
      */
     public ArrayList<String> getRoutenStruktur(){
         return this.routenStruktur;
     }
 
-    /*
-    Returns totaltime.
-    @return DateTimeFormatter totalTime
+    /**
+     * Sets RoutenStruktur.
+     * @ArrayList<String> RoutenStruktur
      */
-    public double totalTime(){
+    public void setRoutenStruktur(ArrayList<String> pRoutenStruktur){
+        this.routenStruktur = pRoutenStruktur;
+    }
+
+    /**
+    *Returns totaltime.
+    *@return double totalTime
+     */
+    public double getTotalTime(){
         return this.totalTime;
     }
 
-    /*
-    Returns totalDistanceInMetres.
-    @return double totelDistanceInMetres
+    /**
+     * Sets totalTime.
+     * @double totalTime
      */
-    public double totelDistanceInMetres(){
+    public void setTotalTime(double pTotalTime){
+        this.totalTime = pTotalTime;
+    }
+
+    /**
+    *Returns totalDistanceInMetres.
+    *@return double totelDistanceInMetres
+     */
+    public double getTotalDistanceInMetres(){
         return this.totalDistanceInMetres;
     }
 
-    /*
-    Returns totalDistanceInKilometres.
-    @return double totelDistanceInKilometres
+    /**
+     * Sets totalDistanceInMetres.
+     * @double totalDistanceInMetres
      */
-    public double totelDistanceInKilometres(){
+    public void setTotalDistanceInMetres(double pTotalDistanceInMetres){
+        this.totalDistanceInMetres = pTotalDistanceInMetres;
+    }
+
+    /**
+    *Returns totalDistanceInKilometres.
+    *@return double totelDistanceInKilometres
+     */
+    public double getTotalDistanceInKilometres(){
         return this.totalDistanceInKilometres;
     }
+
+    /**
+     * Sets totalDistanceInKilometres.
+     * @double pDistanceInKilometres
+     */
+    public void setTotalDistanceInKilometres(double pTotalDistanceInKilometres){
+        this.totalDistanceInKilometres = pTotalDistanceInKilometres;
+    }
+
+
 }

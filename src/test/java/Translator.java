@@ -26,7 +26,7 @@ public class Translator {
      * Zudem wird das translation-Attribut des Objektes durch die Translate-Methode erzeugt.
      * @param rohroute Die rohroute als RouteResponse Objekt.
      */
-     public Translator(RouteResponse rohroute)
+     public Translator(APIOutput route, RouteResponse rohroute)
      {
          this.rohroute    = rohroute;
          this.instructions = translateInstructions(this.rohroute);
@@ -36,7 +36,11 @@ public class Translator {
 
 
 
-         Route route = new Route(this.instructions, this.totalTimeInMinutes, this.totalDistanceInMetres, this.totalDistanceInKilometres);
+         route.setRoutenStruktur(this.instructions);
+         route.setTotalTime(this.totalTimeInMinutes);
+         route.setTotalDistanceInMetres(this.totalDistanceInMetres);
+         route.setTotalDistanceInKilometres(this.totalDistanceInKilometres);
+         //Route route = new Route(this.instructions, this.totalTimeInMinutes, this.totalDistanceInMetres, this.totalDistanceInKilometres);
 
      }
 
