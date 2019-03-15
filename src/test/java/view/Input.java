@@ -2,6 +2,7 @@ package view;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;
+import API.*;
 
 
 public class Input {
@@ -39,13 +40,25 @@ public class Input {
             System.out.println("Verfügbare Fahrzeuge: car -> Auto, foot -> Zu Fuß, bike -> Fahrrad und scooter -> Mopped " );
 
         }
+
+        if (eingabe.equals("berechne")) {
+                UserInteraction anfrage = new UserInteraction( start, ziel, fahrzeug);
+                APIOutput Route =anfrage.getOutput();
+                System.out.print("Wegbeschreibung: ");
+                //System.out.println(Route.getRoutenStruktur());
+                for(String r : Route.getRoutenStruktur()){
+                    System.out.println(r);
+                }
+                System.out.print("Distanz in Meter: ");
+                System.out.println(Route.getTotalDistanceInMetres());
+                System.out.print("Distanz in Kilometer: ");
+                System.out.println(Route.getTotalDistanceInKilometres());
+                System.out.print("Zeit in Minuten: ");
+                System.out.println(Route.getTotalTime());
+        }
     if (eingabe.equals("help start")){
 
-        if (eingabe.equals("suche")){
 
-
-
-        }
 
     }
 

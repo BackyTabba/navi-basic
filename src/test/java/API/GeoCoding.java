@@ -43,7 +43,10 @@ private static double breite=1000,lang=1000;
             GeocodingResponse result = apiInstance.geocodeGet(key, q, locale, limit, reverse, point, provider);
 
             GeocodingPoint punkt =result.getHits().get(0).getPoint();
-            String coordinates =punkt.toString();
+            String x = punkt.getLat().toString();
+            String y = punkt.getLng().toString();
+
+            String coordinates = x+","+y;
 
             return coordinates;
 

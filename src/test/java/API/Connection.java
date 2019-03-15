@@ -4,6 +4,7 @@ import com.graphhopper.directions.api.client.ApiException;
 import com.graphhopper.directions.api.client.api.RoutingApi;
 import com.graphhopper.directions.api.client.model.RouteResponse;
 
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class Connection {
         try {
             RouteResponse result = apiInstance.routeGet(point, false, key, "de", true, vehicle, true, true, Arrays.<String>asList(), false, "fastest", null, null, null, null, null,null,null, null, null, null, null,null);
             return result;
+
 
         } catch (ApiException e) {
             System.err.println("Exception when calling RoutingApi#routeGet");
