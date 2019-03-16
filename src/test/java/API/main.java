@@ -1,5 +1,9 @@
 package API;
 
+//import org.apache.commons.lang3.StringUtils;
+
+//import org.apache.commons.lang.StringUtils.*;
+
 public class main {
 public main(){
 
@@ -12,7 +16,7 @@ public main(){
      *API.UserInteraction kennt die ganze Zeit das API.APIOutput Objekt, darum kann die Klasse das auch zurueck geben.
      */
     }
-    public static void main(String[] args){
+    public static void mann(String[] args){
 
         Long mil = 1040701L;
         Time time = new Time(mil);
@@ -23,5 +27,12 @@ public main(){
         System.out.println(time.getTime());
 
 
+    }
+
+    public static void main(String args[]){
+        String test = "hello";
+        String filler = "          ".substring(test.length()) + test;
+        System.out.println(test);
+        System.out.println(filler);
     }
 }
