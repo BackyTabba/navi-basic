@@ -60,6 +60,5 @@ private static double breite=1000,lang=1000;
             e.printStackTrace();
             return "";
         }
-
     }
 }

@@ -16,13 +16,17 @@ public class Input {
         System.out.println("Bitte geben Sie für eine genaue Routenberechnung Straßenname Hausnummer, Postleitzahl und Stadt ihres Starts und Ziels ein");
         System.out.print("start: ");
         String start = sc.nextLine();
-        if(start.equals("")) start="Heideweg 1, Ritterhude";
+        if(start.equals("")) start="Goethestraße 1, Ritterhude";
         System.out.print("ziel: ");
         String ziel = sc.nextLine();
         if(ziel.equals("")) ziel="Goethestraße 8, Ritterhude";
         System.out.print("fahrzeug: ");
         String fahrzeug = sc.nextLine();
         if(fahrzeug.equals("")) fahrzeug="bike";
+
+
+
+
 
         // Einlesen der Eingabe in den String "eingabe"
         while (sc.hasNext()){
