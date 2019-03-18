@@ -1,4 +1,4 @@
-package API;
+package main.java.API;
 
 import com.graphhopper.directions.api.client.ApiException;
 import com.graphhopper.directions.api.client.api.RoutingApi;

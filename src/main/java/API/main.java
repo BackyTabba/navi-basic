@@ -1,4 +1,4 @@
-package API;
+package main.java.API;
 
 public class main {
 public main(){

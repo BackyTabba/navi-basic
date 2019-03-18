@@ -1,4 +1,4 @@
-package API;
+package main.java.API;
 
 import com.graphhopper.directions.api.client.model.ResponseInstructions;
 import com.graphhopper.directions.api.client.model.RouteResponse;

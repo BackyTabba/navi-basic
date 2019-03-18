@@ -1,4 +1,4 @@
-package API;
+package main.java.API;
 
 /**
  * The Class API.UserInteraction stores the userinput given to run the API.
