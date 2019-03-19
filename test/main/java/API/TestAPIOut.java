@@ -19,49 +19,49 @@ public class TestClass {
     public TestClass(){}
 
     @Before
-    public void setUp(){ System.out.println("Ich fange an zu Testen."); }
+    public void setUp(){}
 
     @After
-    public void tearDown(){ System.out.println("Ich hoffe, alle Tests waren erfolgreich!"); }
+    public void tearDown(){}
 
+    /**
+     * Testing Time class
+     */
     @Test
     public void checkTimeClass(){
-        Time time = new Time(Long.MAX_VALUE);
-        time.getTime();
+        new Time(Long.MAX_VALUE);
+        new Time(0L);
+        Time time = new Time(-Long.MAX_VALUE);
         time.getDays();
-        time = new Time(0L);
-        time.getTime();
-        time.getDays();
-        time = new Time(-Long.MAX_VALUE);
-        time.getTime();
-        time.getDays();
+        time.getHours();
+        time.getMinutes();
+        time.getSeconds();
+        time.getMilliseconds();
     }
 
+    /**
+     * Testing Translator class
+     */
     @Test
     public void checkTranslatorClass(){
-        Translator tl;
-        tl = new Translator(null, null);
-        tl = new Translator(null, new RouteResponse());
-        tl = new Translator(new APIOutput(), null);
-        tl = new Translator(new APIOutput(), new RouteResponse());
+        new Translator(null, null);
+        new Translator(new APIOutput(), new RouteResponse());
     }
 
+    /**
+     * Testing APIOutput class
+     */
     @Test
     public void checkAPIOutputClass(){
         APIOutput apioutput = new APIOutput();
 
-        //Methoden get- und setRoutenstruktur.
-        apioutput.getRoutenStruktur();
+        //Method .setRoutenstruktur(ArrayList<String>())
         apioutput.setRoutenStruktur(null);
-        apioutput.getRoutenStruktur();
         apioutput.setRoutenStruktur(new ArrayList<String>());
-        apioutput.getRoutenStruktur();
 
-        //Methoden get- und setStrukturDistance.
-       // apioutput.getStrukturDistance();
-       // apioutput.setStrukturDistance(null);
-       // apioutput.getStrukturDistance();
-       // apioutput.setStrukturDistance(ArrayList<>)
+        //Method .setStrukturDistance(ArrayList<double>).
+        //apioutput.getStrukturdistance(null);
+        //apioutput.getStrukturdistance(new ArrayList<Double>());
 
         //Methoden get- und setStrukturTime.
 
