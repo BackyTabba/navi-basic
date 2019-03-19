@@ -58,10 +58,10 @@ public class TestClass {
         apioutput.getRoutenStruktur();
 
         //Methoden get- und setStrukturDistance.
-        apioutput.getStrukturDistance();
-        apioutput.setStrukturDistance(null);
-        apioutput.getStrukturDistance();
-        apioutput.setStrukturDistance(ArrayList<>)
+       // apioutput.getStrukturDistance();
+       // apioutput.setStrukturDistance(null);
+       // apioutput.getStrukturDistance();
+       // apioutput.setStrukturDistance(ArrayList<>)
 
         //Methoden get- und setStrukturTime.
 

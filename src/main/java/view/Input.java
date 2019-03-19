@@ -30,7 +30,7 @@ public class Input
         int nrOfWords = start.split( "(\\s|\\p{Punct})+" ).length;
         System.out.println( nrOfWords );
         if(nrOfWords == 1) search = true;
-        if(nrOfWords == 2) search = false;//hat funktioniert!!!!hghghghghgh
+        if(nrOfWords == 2) search = false;
         if(nrOfWords == 3) search = true;
         if(nrOfWords >= 4) search = false;
         //testgelände!!!!
