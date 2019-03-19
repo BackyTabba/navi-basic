@@ -10,10 +10,10 @@ import javax.xml.bind.JAXB;
 
 public class XML_Changer {
 
-    public void tablegenerator(List<RouteResponsePath>)
+    public void tablegenerator(List<RouteResponsePath> test)
     {
         Room room = new Room();
-        room.setPaths(Connection.anfrage("Münster", "München", "car").getPaths());
-        Marshaller
+        //room.setPaths(Connection.anfrage("Münster", "München", "car").getPaths());
+        //Marshaller
     }
 }
