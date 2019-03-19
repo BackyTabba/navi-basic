@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 import main.java.API.*;
 
+import static jdk.nashorn.internal.runtime.ScriptingFunctions.exec;
 
 
 public class Input
@@ -24,7 +25,21 @@ public class Input
         String start = sc.nextLine();
         if(start.equals("")) start="Bruchtal";
 
-        if (start.equals("search"))
+        //testgelände!!!!
+        boolean search = false;
+        int nrOfWords = start.split( "(\\s|\\p{Punct})+" ).length;
+        System.out.println( nrOfWords );
+        if(nrOfWords == 1) search = true;
+        if(nrOfWords == 2) search = false;//hat funktioniert!!!!hghghghghgh
+        if(nrOfWords == 3) search = true;
+        if(nrOfWords >= 4) search = false;
+        //testgelände!!!!
+
+
+
+
+        //if (start.equals("search"))         alte Frage
+        if(search == true)                  //neue Frage
         {
             System.out.print("Startpunkt angeben: ");
             String eingabe = sc.nextLine();
