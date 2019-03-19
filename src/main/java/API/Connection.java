@@ -33,7 +33,7 @@ public class Connection {
      * @param fortbewegung should be the vehicle used for the route.
      * @return RouteResponse will be an object returned by the external API.
      */
-    public RouteResponse anfrage( String punkt1, String punkt2, String fortbewegung ){
+    public static RouteResponse anfrage( String punkt1, String punkt2, String fortbewegung ){
 
         RoutingApi apiInstance = new RoutingApi();
         List<String> point = Arrays.asList(punkt1, punkt2);

@@ -1,6 +1,7 @@
 package main.java.API;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -106,6 +107,23 @@ public class APIOutput {
      */
     public void setTotalDistanceInKilometres(double pTotalDistanceInKilometres){
         this.totalDistanceInKilometres = pTotalDistanceInKilometres;
+    }
+
+    public List<OutputPoints>toPoints()
+    {
+        List<OutputPoints> punkteListe = new ArrayList<OutputPoints>();
+        for(int i = 0; i < this.routenStruktur.size();i++)
+        {
+            String text = this.getRoutenStruktur().get(i);
+            Time zeit = this.getStrukturtime().get(i);
+            double distanz = this.getStrukturdistance().get(i);
+            OutputPoints punkt = new OutputPoints(text,distanz,zeit);
+
+            punkteListe.add(i, punkt);
+        }
+        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime());
+        punkteListe.add(last);
+        return punkteListe;
     }
 
 
