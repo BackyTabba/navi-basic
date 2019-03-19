@@ -13,38 +13,28 @@ public class Input
      * A main method which creates a console input.
      * There you can enter the start, finish and mode of transportation for a desired route.
      * Then you will get printed version of the description of route and the total time and distance travelled
-     * @param args commandline parameters
+     * @param args
      */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
 
+        //Asking for input "start"
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bitte geben Sie für eine genaue Routenberechnung Straßenname Hausnummer, Postleitzahl und Stadt ihres Starts und Ziels ein");
-
-        System.out.print("start: ");
+        System.out.println("Bitte geben sie ihre Startadresse an.");
+        System.out.print("Start: ");
         String start = sc.nextLine();
-        if(start.equals("")) start="Bruchtal";
 
-        //testgelände!!!!
+        //Asks if start is precise or not
         boolean search = false;
         int nrOfWords = start.split( "(\\s|\\p{Punct})+" ).length;
-        System.out.println( nrOfWords );
-        if(nrOfWords == 1) search = true;
+        if(nrOfWords <= 1) search = true;
         if(nrOfWords == 2) search = false;
         if(nrOfWords == 3) search = true;
         if(nrOfWords >= 4) search = false;
-        //testgelände!!!!
 
-
-
-
-        //if (start.equals("search"))         alte Frage
-        if(search == true)                  //neue Frage
-        {
-            System.out.print("Startpunkt angeben: ");
-            String eingabe = sc.nextLine();
-
-            List<String> auswahl = UserInteraction.getList(eingabe);
+        //If start is not precise, give options to the user.
+        if(search){
+            System.out.println("Bitte warten, Vorschläge werden geladen.");
+            List<String> auswahl = UserInteraction.getList(start);
             for(int i = 0; i < auswahl.size(); i++)
             {
                 System.out.printf("%-4s %s \n", (i+1)+":", auswahl.get(i));
@@ -53,67 +43,58 @@ public class Input
             System.out.println("");
             int index = sc.nextInt()-1;
             System.out.println(auswahl.get(index));
-
-            String startf = auswahl.get(index);
-
-            System.out.print("Zielpunkt angeben: ");
+            start = auswahl.get(index);
             sc.nextLine();
+        }
 
-            String eingabez = sc.nextLine();
+        //Asking for input "ziel"
+        System.out.println("Bitte geben sie ihren Zielpunkt an.");
+        System.out.print("Ziel: ");
+        String ziel = sc.nextLine();
 
-            List<String> auswahlz = UserInteraction.getList(eingabez);
-            for(int i = 0; i < auswahlz.size(); i++)
-            {
-                System.out.printf("%-4s %s \n", (i+1)+":", auswahlz.get(i));
+        //Asks if ziel is precise or not
+        nrOfWords = ziel.split( "(\\s|\\p{Punct})+" ).length;
+        if(nrOfWords <= 1) search = true;
+        if(nrOfWords == 2) search = false;
+        if(nrOfWords == 3) search = true;
+        if(nrOfWords >= 4) search = false;
+
+        //If ziel is not precise, give options to the user.
+        if(search) {
+            System.out.println("Bitte warten, Vorschläge werden geladen.");
+            List<String> auswahl = UserInteraction.getList(ziel);
+            for (int i = 0; i < auswahl.size(); i++) {
+                System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
             }
             System.out.print("Bitte Vorschlagsnummer angeben: ");
-            int indexz = sc.nextInt();
-            indexz--;
-            System.out.println(auswahlz.get(indexz));
-            String zielf = auswahlz.get(indexz);
-
-            System.out.print("Fahrzeug angeben: ");
+            System.out.println("");
+            int index = sc.nextInt() - 1;
+            System.out.println(auswahl.get(index));
+            ziel = auswahl.get(index);
             sc.nextLine();
-            String fahrzeugf = sc.nextLine();
-
-            exec(startf, zielf, fahrzeugf);
-
-            sc.close();
-
         }
 
-        System.out.print("ziel: ");
-        String ziel = sc.nextLine();
-        if(ziel.equals("")) ziel="Mordor";
-        System.out.print("fahrzeug: ");
-        String fahrzeug = sc.nextLine();
-        if(fahrzeug.equals("")) fahrzeug="foot";
+        //Asks for a "fahrzeug"
+        System.out.println("Bitte geben sie das Fahrzeug an, mit dem sie reisen möchen.");
+        System.out.print("Fahrzeug: ");
+        String vehicle = sc.nextLine();
 
-
-        while (sc.hasNext())
+        //If fahrzeug is not precise, ask again, repeat 5 times.
+        int versuche = 5;
+        while((versuche != 0) && (!vehicle.equals("car")) && (!vehicle.equals("foot")) && (!vehicle.equals("bike")) && (!vehicle.equals("scooter")))
         {
-            String eingabe = sc.nextLine();
-
-
-            if(eingabe.toLowerCase().equals("exit")){
-                sc.close();
-                return;
-            }
-            if(eingabe.equals("help")){
-                System.out.println("help - Zeigt die Hilfe an");
-                System.out.println("start - Input für Start");
-                System.out.println("ziel - Input für Ziel");
-                System.out.println("Verfügbare Fahrzeuge: car -> Auto, foot -> Zu Fuß, bike -> Fahrrad und scooter -> Mopped " );
-
-            }
-
-            if (eingabe.equals("exec")||eingabe.equals(""))
-            {
-                exec(start, ziel, fahrzeug);
-            }
-
+            if(versuche > 1)System.out.println("Das angegebene Fahrzeug kenne ich nicht. Bitte geben sie eines der folgenden an: 'car', 'foot', 'bike', 'scooter'." +
+                    " Noch " + versuche + " Versuche übrig.");
+            else System.out.println("Das angegebene Fahrzeug kenne ich nicht. Bitte geben sie eines der folgenden an: 'car', 'foot', 'bike', 'scooter'." +
+                    " Sie haben noch einen Versuch!");
+            System.out.println("Fahrzeug: ");
+            vehicle = sc.nextLine();
+            versuche--;
         }
 
+        //If everything is clear, call exec.
+        if((versuche != 0) && ((vehicle.equals("car")) || (vehicle.equals("foot")) || (vehicle.equals("bike")) || (vehicle.equals("scooter"))))
+            exec(start, ziel, vehicle);
     }
 
     /**
