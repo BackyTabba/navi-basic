@@ -36,12 +36,14 @@ public class Time {
      */
     public String getTime(){
         long h,m,s;
+
         h=getHours();
         m=getMinutes()%60;
         s=getSeconds()%60;
         String hh,mm,ss,ff;
-        if(false) hh = "0" + h;
-            else hh = "" + h;
+
+
+         hh = "" + h;
         if(m<10&&h>0) mm="0"+m;
             else mm=""+m;
         if(s<10&& m>0 || h>0) ss = "0" + s;

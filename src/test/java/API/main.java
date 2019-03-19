@@ -33,50 +33,6 @@ public main(){
 
 
 
-        System.setProperty("sun.java2d.cmm", "sun.java2d.cmm.kcms.KcmsServiceProvider");
-        String pdfFilename = "C:\\Users\\user\\test.pdf";
-
-        PDFStreamParser parser = new PDFStreamParser();
-        parser.parse();
-        List<Object> tokens = parser.getTokens();
-
-        System.out.println(tokens);
-
-        /*
-        String pdfFilename = "C:\\Users\\user\\test.pdf";
-        PDDocument document = PDDocument.load(new File(pdfFilename));
-        PDFPrintable pdfRenderer = new PDFPrintable(document);
-        int pageCounter = 0;
-
-
-        //pdfRenderer.print(null, null, 0);
-
-
-
-
-        //PDImageXObject.createFromFile(document);
-
-
-        document.close();
-
-
-
-        //PrinterJob job = PrinterJob.getPrinterJob();
-        //job.setPageable(new PDFPageable(document));
-        //job.print();
-        /*
-        for (PDPage page : document.getPages())
-        {
-            // note that the page number parameter is zero based
-            BufferedImage bim = pdfRenderer.renderImageWithDPI(pageCounter, 300, ImageType.RGB);
-
-            // suffix in filename will be used as the file format
-            ImageIOUtil.writeImage(bim, pdfFilename + "-" + (pageCounter++) + ".png", 300);
-        }
-
-        document.close();
-        */
-
     }
 
 
