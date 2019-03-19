@@ -21,9 +21,8 @@ private static double breite=1000,lang=1000;
 
     public static void main(String[] args)
     {
-        for ( String f :getList("Münster")){
-            System.out.println(f);
-        }
+        System.out.println(getResult("Münster"));
+
     }
 
     private static List<GeocodingLocation> getResult(String q)
