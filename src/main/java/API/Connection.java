@@ -46,7 +46,7 @@ public class Connection {
 
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling RoutingApi#routeGet");
+            System.err.println("Es ist ein Fehler beim Berechenen ihrer Route aufgetreten.\nBitte Überprüfen Sie ihre Eingaben oder nutzen Sie die search-Funktion um ihre Start- und/oder Zieladresse zulokalisieren.\nBeachten Sie außerdem, dass die Ermittlung von Flugrouten nicht möglich ist.");
             e.printStackTrace();
             return null;
         }

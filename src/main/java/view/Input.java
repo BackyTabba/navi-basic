@@ -29,7 +29,7 @@ public class Input
             System.out.print("Startpunkt angeben: ");
             String eingabe = sc.nextLine();
 
-            List<String> auswahl = GeoCoding.getList(eingabe);
+            List<String> auswahl = UserInteraction.getList(eingabe);
             for(int i = 0; i < auswahl.size(); i++)
             {
                 System.out.printf("%-4s %s \n", (i+1)+":", auswahl.get(i));
@@ -46,7 +46,7 @@ public class Input
 
             String eingabez = sc.nextLine();
 
-            List<String> auswahlz = GeoCoding.getList(eingabez);
+            List<String> auswahlz = UserInteraction.getList(eingabez);
             for(int i = 0; i < auswahlz.size(); i++)
             {
                 System.out.printf("%-4s %s \n", (i+1)+":", auswahlz.get(i));
@@ -62,6 +62,8 @@ public class Input
             String fahrzeugf = sc.nextLine();
 
             exec(startf, zielf, fahrzeugf);
+
+            sc.close();
 
         }
 
