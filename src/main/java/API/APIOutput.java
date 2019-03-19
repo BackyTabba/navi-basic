@@ -1,7 +1,7 @@
 package main.java.API;
 
 import java.util.ArrayList;
-import java.util.Date;
+
 
 /**
  * This class contains all informations about the route.

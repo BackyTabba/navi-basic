@@ -1,5 +1,6 @@
 package main.java.API;
 
+
 public class Time {
 
     private Long timeInMs;

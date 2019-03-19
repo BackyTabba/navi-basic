@@ -37,7 +37,7 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API.
      * @return ArrayList<String> will be the dragged out ArrayList.
       */
-     public void translateInstructions(APIOutput route,RouteResponse rohroute)
+     private void translateInstructions(APIOutput route,RouteResponse rohroute)
      {
          RouteResponsePath path = rohroute.getPaths().get(0);
          ResponseInstructions instr = path.getInstructions();
@@ -65,7 +65,7 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API.
      * @return double will be the amount of needed minutes to travel the route.
      */
-     public Time translateTotalTimeAsDate(RouteResponse rohroute){
+     private Time translateTotalTimeAsDate(RouteResponse rohroute){
 
          RouteResponsePath path = rohroute.getPaths().get(0);
          Time result = new Time(path.getTime().longValue());
@@ -77,7 +77,7 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API
      * @return double will be the amount of metres needed to travel the route.
      */
-     public double translateTotalDistanceInMetres(RouteResponse rohroute){
+     private double translateTotalDistanceInMetres(RouteResponse rohroute){
          RouteResponsePath path = rohroute.getPaths().get(0);
          return path.getDistance();
      }
@@ -87,7 +87,7 @@ public class Translator {
      * @param rohroute should be the RouteResponse object given by the external API
      * @return double will be the kilometers needed to travel to arrive the destination.
      */
-     public double translateTotalDistanceInKilometres(RouteResponse rohroute){
+     private double translateTotalDistanceInKilometres(RouteResponse rohroute){
          RouteResponsePath path = rohroute.getPaths().get(0);
          return path.getDistance()/1000;
      }

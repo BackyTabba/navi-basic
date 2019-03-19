@@ -17,10 +17,10 @@ public class GeoCoding {
     /**
      * A method to get a List of GeoccdingLocations  from the Graphhoppper API.
      * To get the location which is to be geocoded you have to enter a String of the adress.
-     * @param q The adress of the location you wish to geocode
+     * @param adress The adress of the location you wish to geocode
      * @return List of GeocodingLocations which fit your adress
      */
-    public static List<GeocodingLocation> getResult(String q)
+    public static List<GeocodingLocation> getResult(String adress)
     {
         GeocodingApi apiInstance = new GeocodingApi();
         String key = "603dac65-1037-453a-916f-fb788bebabf5";
@@ -30,7 +30,7 @@ public class GeoCoding {
         String point = "";
         String provider = "default";
         try {
-            GeocodingResponse result = apiInstance.geocodeGet(key, q, locale, limit, reverse, point, provider);
+            GeocodingResponse result = apiInstance.geocodeGet(key, adress, locale, limit, reverse, point, provider);
 
             return result.getHits();
 
