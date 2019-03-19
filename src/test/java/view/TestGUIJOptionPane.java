@@ -22,7 +22,6 @@ public class TestGUIJOptionPane {
         int eingabe = 1;
         if(fahrzeug != null) {
             fahrzeugS = fahrzeug.toString();
-            //Object[] options = {"Routenberechung starten", "Abbrechen"};
             eingabe = JOptionPane.showConfirmDialog(null, "Routenberechnung starten?", "Routenberechnung", JOptionPane.YES_NO_OPTION, 1);
         }
 
@@ -36,12 +35,12 @@ public class TestGUIJOptionPane {
             for (int i = 0; i < Route.getRoutenStruktur().size() - 1; i++) {
 
                 String a = i + ":";
-                a = "      ".substring(a.length()) + a;
+                a = "______".substring(a.length()) + a;
                 String b = Route.getStrukturdistance().get(i).intValue() + " m";
-                b = "          ".substring(b.length()) + b;
+                b = "__________".substring(b.length()) + b;
                 String c = Route.getStrukturtime().get(i).getTime();
-                c = "           ".substring(c.length()) + c;
-                String d = "    " + Route.getRoutenStruktur().get(i);
+                c = "___________".substring(c.length()) + c;
+                String d = "____" + Route.getRoutenStruktur().get(i);
 
                 e = e +  a + b + c + d + "\n";
             }
