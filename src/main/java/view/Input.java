@@ -149,6 +149,10 @@ public class Input
     }
 
     /**
+     * A method for checking conditions of a atribute and
+     */
+
+    /**
      * A method for calling the navi-basic API. It needs a String of the start, the finish and vehicle of route.
      * It prints of the properties of the route-object on to the console.
      * @param start The starting adress of your desired route as a String
