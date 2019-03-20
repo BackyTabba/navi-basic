@@ -22,12 +22,15 @@ public class Translator {
      * @param route should be the API.APIOutput object witch is createt in API.UserInteraction.
      * @param rohroute should be the RouteResponse object, given by the external API.
      */
-     public Translator(APIOutput route, RouteResponse rohroute)
-     {
-         translateInstructions(route, rohroute);
-         route.setTotalTimeAsDate(translateTotalTimeAsDate(rohroute));
-         route.setTotalDistanceInMetres(translateTotalDistanceInMetres(rohroute));
-         route.setTotalDistanceInKilometres(translateTotalDistanceInKilometres(rohroute));
+     public Translator(APIOutput route, RouteResponse rohroute){
+         //try {
+             translateInstructions(route, rohroute);
+             route.setTotalTimeAsDate(translateTotalTimeAsDate(rohroute));
+             route.setTotalDistanceInMetres(translateTotalDistanceInMetres(rohroute));
+             route.setTotalDistanceInKilometres(translateTotalDistanceInKilometres(rohroute));
+         //}catch(NullPointerException e){
+           // System.err.println("");
+         //}
      }
 
 
@@ -39,25 +42,25 @@ public class Translator {
       */
      private void translateInstructions(APIOutput route,RouteResponse rohroute)
      {
-         RouteResponsePath path = rohroute.getPaths().get(0);
-         ResponseInstructions instr = path.getInstructions();
-         ArrayList<String> EText = new ArrayList<String>();
-         ArrayList<Time> EZeit = new ArrayList<Time>();
-         ArrayList<Double> EWeg = new ArrayList<Double>();
+         try {
+             RouteResponsePath path = rohroute.getPaths().get(0);
+             ResponseInstructions instr = path.getInstructions();
+             ArrayList<String> EText = new ArrayList<String>();
+             ArrayList<Time> EZeit = new ArrayList<Time>();
+             ArrayList<Double> EWeg = new ArrayList<Double>();
 
-         for(int i = 0; i < instr.size(); i++)
-         {
-            EText.add(i, instr.get(i).getText());
-            EWeg.add(i, instr.get(i).getDistance());
-            EZeit.add(i, new Time(instr.get(i).getTime().longValue()));
+             for (int i = 0; i < instr.size(); i++) {
+                 EText.add(i, instr.get(i).getText());
+                 EWeg.add(i, instr.get(i).getDistance());
+                 EZeit.add(i, new Time(instr.get(i).getTime().longValue()));
 
+             }
+             route.setRoutenStruktur(EText);
+             route.setStrukturdistance(EWeg);
+             route.setStrukturtime(EZeit);
+         }catch(NullPointerException e){
+             System.err.print("The RouteResponse object is null or empty.");
          }
-         route.setRoutenStruktur(EText);
-         route.setStrukturdistance(EWeg);
-         route.setStrukturtime(EZeit);
-
-         //System.out.println(translation); debugging only
-
      }
 
     /**

@@ -4,6 +4,7 @@ package main.java.API;
 import com.graphhopper.directions.api.client.model.GeocodingResponse;
 import com.graphhopper.directions.api.client.model.RouteResponse;
 import com.sun.org.apache.xerces.internal.xs.StringList;
+import com.thoughtworks.xstream.mapper.Mapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 import java.util.Vector;
 
+import static com.sun.xml.internal.ws.api.message.Packet.Status.Request;
 import static java.lang.Float.MAX_VALUE;
 import static java.lang.Float.MIN_VALUE;
 
@@ -130,11 +132,10 @@ public class TestClass {
      * case1: calling konstruktor with null, null, null, null.
      * case2: calling konstruktor with empty objects.
      */
-    @Test
+    @Test()
     public void checkConnectionClass(){
 
         //Konstruktor
-        Connection connection;
         new Connection(null, null, null, null);
         new Connection(new APIOutput(), "", "", "");
     }

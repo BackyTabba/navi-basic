@@ -22,7 +22,9 @@ public class Connection {
      */
     public Connection(APIOutput route, String start, String ziel, String fahrzeug)
     {
-        Translator translator = new Translator(route, anfrage(start, ziel, fahrzeug));
+        RouteResponse routeResponse = anfrage(start, ziel, fahrzeug);
+        if(routeResponse != null)
+            new Translator(route, routeResponse);
     }
 
 
@@ -46,8 +48,8 @@ public class Connection {
 
 
         } catch (ApiException e) {
-            System.err.println("Es ist ein Fehler beim Berechenen ihrer Route aufgetreten.\nBitte Überprüfen Sie ihre Eingaben oder nutzen Sie die search-Funktion um ihre Start- und/oder Zieladresse zulokalisieren.\nBeachten Sie außerdem, dass die Ermittlung von Flugrouten nicht möglich ist.");
-            e.printStackTrace();
+            System.err.println("An Critical error occured in the Response by Graph Hopper.\n Please check the input!");
+            //e.printStackTrace();      Debugg only
             return null;
         }
 
