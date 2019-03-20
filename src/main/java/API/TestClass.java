@@ -191,11 +191,11 @@ public class TestClass {
      */
     @Test
     public void checkXmlChangerClass(){
-        XmlChanger.ichMachXML(null);
-        XmlChanger.ichMachXML(new ArrayList<OutputPoints>());
-        XmlChanger.ichMachXML(new LinkedList<OutputPoints>());
-        XmlChanger.ichMachXML(new Vector<OutputPoints>());
-        XmlChanger.ichMachXML(new Stack<OutputPoints>());
+        XmlChanger.ichMachXML(null,null,null);
+        XmlChanger.ichMachXML(new ArrayList<OutputPoints>(),null,null);
+        XmlChanger.ichMachXML(new LinkedList<OutputPoints>(),null,null);
+        XmlChanger.ichMachXML(new Vector<OutputPoints>(),null,null);
+        XmlChanger.ichMachXML(new Stack<OutputPoints>(),null,null);
     }
 
     /**

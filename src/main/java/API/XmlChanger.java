@@ -22,15 +22,22 @@ public class XmlChanger {
      *@param liste
      *@since
      */
-    public static void ichMachXML(List<OutputPoints> liste) {
+    public static void ichMachXML(List<OutputPoints> liste, String a, String b) {
         XStream xs = new XStream(new DomDriver());
 
         xs.alias("Wegbeschreibung", OutputPoints.class);
+        xs.aliasField("Schritt", OutputPoints.class, "schritt");
+        xs.aliasField("Beschreibung", OutputPoints.class, "text");
+        xs.aliasField("Distanz", OutputPoints.class, "distance");
+        xs.aliasField("Zeit", OutputPoints.class, "time");
+        xs.aliasField("Straße", OutputPoints.class, "straße");
+        xs.aliasField("Bemerkung", OutputPoints.class, "bemerkung");
+
         try
         {
             String userhome = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
-            List<OutputPoints> druck = lastStreet(liste);
-            String filename = userhome+ File.separator+druck.get(0).getStraße()+" nach "+liste.get(druck.size()-2).getStraße()+".xml";
+
+            String filename = userhome+ File.separator+a+" nach "+b+".xml";
             FileOutputStream fos = new FileOutputStream(filename);
 
             xs.toXML(liste, fos);
@@ -46,16 +53,6 @@ public class XmlChanger {
 
     }
 
-    private static List<OutputPoints> lastStreet(List<OutputPoints> list)
-    {
-        for(int i = 1; i<list.size()-1; i++)
-        {
-            if (list.get(i).getStraße() == null || list.get(i).getStraße().equals("") ) {
-                list.get(i).setStraße(list.get(i - 1).getStraße());
-                System.out.println(i+" angepasst");
-            }
-        }
-        return list;
-    }
+
 }
 
