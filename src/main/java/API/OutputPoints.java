@@ -27,4 +27,8 @@ public class OutputPoints {
     public String getStraße() {
         return straße;
     }
+
+    public void setStraße(String straße) {
+        this.straße = straße;
+    }
 }

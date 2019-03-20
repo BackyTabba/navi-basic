@@ -141,7 +141,8 @@ public class APIOutput {
 
             punkteListe.add(i, punkt);
         }
-        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),null,null,this.routenStruktur.size()+1);
+
+        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),null,null,this.routenStruktur.size()-1);
         punkteListe.add(last);
         return punkteListe;
     }
