@@ -35,8 +35,7 @@ public class GeoCoding {
             return result.getHits();
 
         } catch (ApiException e) {
-            System.err.println("Es ist ein Fehler beim Ermitteln der Koordinaten ihrer gewünschten Adresse aufgetreten.\nBitte Überprüfen Sie ihre Eingabe auf korrekte Rechtschreibung und erweitern Sie ihre Eingabe ggf. um Zusatzinformation(z.B. Postleitzahl)!");
-            e.printStackTrace();
+            System.err.println("An Critical error occured in the Response by Graph Hopper.\n Please check the input!");            //e.printStackTrace();
             return null;
         }
     }
@@ -49,12 +48,17 @@ public class GeoCoding {
     public static String geocode(String adress)
 
     {
-            GeocodingPoint punkt =getResult(adress).get(0).getPoint();
+        if(adress != null && !adress.equals("")) {
+            GeocodingPoint punkt = getResult(adress).get(0).getPoint();
             String x = punkt.getLat().toString();
             String y = punkt.getLng().toString();
 
-            String coordinates = x+","+y;
+            String coordinates = x + "," + y;
 
             return coordinates;
+        }else{
+            System.err.println("The String adress should contain informations and can't be null or empty.");
+            return null;
+        }
     }
 }
