@@ -23,14 +23,14 @@ public class Translator {
      * @param rohroute should be the RouteResponse object, given by the external API.
      */
      public Translator(APIOutput route, RouteResponse rohroute){
-         //try {
+         try {
              translateInstructions(route, rohroute);
              route.setTotalTimeAsDate(translateTotalTimeAsDate(rohroute));
              route.setTotalDistanceInMetres(translateTotalDistanceInMetres(rohroute));
              route.setTotalDistanceInKilometres(translateTotalDistanceInKilometres(rohroute));
-         //}catch(NullPointerException e){
-           // System.err.println("");
-         //}
+         }catch(NullPointerException e){
+            System.err.println("The RouteResponse object is null or empty.");
+         }
      }
 
 
