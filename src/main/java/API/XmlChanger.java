@@ -28,7 +28,7 @@ public class XmlChanger {
         xs.alias("Wegbeschreibung", OutputPoints.class);
         xs.aliasField("Schritt", OutputPoints.class, "schritt");
         xs.aliasField("Beschreibung", OutputPoints.class, "text");
-        xs.aliasField("Distanz", OutputPoints.class, "distance");
+        xs.aliasField("DistanzInMeter", OutputPoints.class, "distance");
         xs.aliasField("Zeit", OutputPoints.class, "time");
         xs.aliasField("Straße", OutputPoints.class, "straße");
         xs.aliasField("Bemerkung", OutputPoints.class, "bemerkung");
