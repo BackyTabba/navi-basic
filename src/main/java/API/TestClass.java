@@ -172,17 +172,17 @@ public class TestClass {
     public void checkUserInteractionClass(){
 
         //Konstruktor (double, double, double, double, String)
-        //new UserInteraction(0.0, 0.0, 0.0,0.0,  new String());
-        //new UserInteraction(MIN_VALUE, MIN_VALUE, MIN_VALUE, MIN_VALUE, "");
-        //new UserInteraction(MAX_VALUE, MAX_VALUE, MAX_VALUE, MAX_VALUE, "abcde");
+        new UserInteraction(0.0, 0.0, 0.0,0.0,  new String());
+        new UserInteraction(MIN_VALUE, MIN_VALUE, MIN_VALUE, MIN_VALUE, "");
+        new UserInteraction(MAX_VALUE, MAX_VALUE, MAX_VALUE, MAX_VALUE, "abcde");
 
         //Konstruktor (String, String, String)
-        //new UserInteraction(new String(), new String(), new String());
+        new UserInteraction(new String(), new String(), new String());
         new UserInteraction("", "", "");
-        //new UserInteraction("abcde", "abcde", "abcde");
+        new UserInteraction("abcde", "abcde", "abcde");
 
         //Method getOutput
-        //new UserInteraction("","","").getOutput();
+        new UserInteraction("","","").getOutput();
     }
 
     /**
