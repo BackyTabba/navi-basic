@@ -53,8 +53,9 @@ public class UserInteraction{
     }
 
     public UserInteraction(String x, String y, String vehicle){
-        Connection request = new Connection(this.route, GeoCoding.geocode(x), GeoCoding.geocode(y), vehicle);
-        XmlChanger.ichMachXML(this.route.toPoints());
+
+            Connection request = new Connection(this.route, GeoCoding.geocode(x), GeoCoding.geocode(y), vehicle);
+            XmlChanger.ichMachXML(this.route.toPoints());
     }
 
     /**
