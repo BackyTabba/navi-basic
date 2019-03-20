@@ -127,24 +127,28 @@ public class APIOutput {
         return strukturStraße;
     }
 
-    public List<OutputPoints>toPoints()
+    public List<OutputPoints> toPoints()
     {
-        List<OutputPoints> punkteListe = new ArrayList<OutputPoints>();
-        for(int i = 0; i < this.routenStruktur.size()-1;i++)
-        {
-            String text = this.getRoutenStruktur().get(i);
-            String zeit = this.getStrukturtime().get(i).getTime();
-            double distanz = this.getStrukturdistance().get(i);
-            String straße = this.getStrukturStraße().get(i);
-            String bemerkung = this.getStrukturBemerkung().get(i);
-            OutputPoints punkt = new OutputPoints(text,distanz,zeit,straße,bemerkung,i);
+        try {
+            List<OutputPoints> punkteListe = new ArrayList<OutputPoints>();
+            for (int i = 0; i < this.routenStruktur.size() - 1; i++) {
+                String text = this.getRoutenStruktur().get(i);
+                String zeit = this.getStrukturtime().get(i).getTime();
+                double distanz = this.getStrukturdistance().get(i);
+                String straße = this.getStrukturStraße().get(i);
+                String bemerkung = this.getStrukturBemerkung().get(i);
+                OutputPoints punkt = new OutputPoints(text, distanz, zeit, straße, bemerkung, i);
 
-            punkteListe.add(i, punkt);
+                punkteListe.add(i, punkt);
+            }
+
+            OutputPoints last = new OutputPoints("Gesamt", this.getTotalDistanceInKilometres(), this.getTotalTime().getTime(), null, null, this.routenStruktur.size() - 1);
+            punkteListe.add(last);
+            return punkteListe;
+        }catch(NullPointerException e){
+            System.err.println("One of the attribute routenStruktur should not be empty.");
+            return null;
         }
-
-        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),null,null,this.routenStruktur.size()-1);
-        punkteListe.add(last);
-        return punkteListe;
     }
 
 
