@@ -140,6 +140,7 @@ public class Input
                 versuche--;
             }
 
+
             //If everything is clear, call exec.
             if ((versuche != 0) && ((vehicle.equals("car")) || (vehicle.equals("foot")) || (vehicle.equals("bike")) || (vehicle.equals("scooter")))) {
                 System.out.println("start: " + start + " Ziel: " + ziel + " vehicle: " + vehicle);
