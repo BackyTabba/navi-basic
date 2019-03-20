@@ -48,16 +48,23 @@ public class Translator {
              ArrayList<String> EText = new ArrayList<String>();
              ArrayList<Time> EZeit = new ArrayList<Time>();
              ArrayList<Double> EWeg = new ArrayList<Double>();
+             ArrayList<String> EBemerkung = new ArrayList<String>();
+             ArrayList<String> EStraße = new ArrayList<String>();
 
              for (int i = 0; i < instr.size(); i++) {
                  EText.add(i, instr.get(i).getText());
                  EWeg.add(i, instr.get(i).getDistance());
                  EZeit.add(i, new Time(instr.get(i).getTime().longValue()));
+                 EBemerkung.add(i, instr.get(i).getAnnotationText());
+                 EStraße.add(i, instr.get(i).getStreetName());
 
              }
              route.setRoutenStruktur(EText);
              route.setStrukturdistance(EWeg);
              route.setStrukturtime(EZeit);
+             route.setStrukturStraße(EStraße);
+             route.setStrukturBemerkung(EBemerkung);
+
          }catch(NullPointerException e){
              System.err.print("The RouteResponse object is null or empty.");
          }

@@ -29,7 +29,7 @@ public class XmlChanger {
         {
 
             String userhome = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
-            String filename = userhome+ File.separator+liste.get(0).getText()+" nach "+liste.get(liste.size()-1).getText()+".xml";
+            String filename = userhome+ File.separator+liste.get(0).getStraße()+" nach "+liste.get(liste.size()-1).getStraße()+".xml";
             FileOutputStream fos = new FileOutputStream(filename);
 
             xs.toXML(liste, fos);

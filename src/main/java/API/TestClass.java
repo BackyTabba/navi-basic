@@ -207,9 +207,9 @@ public class TestClass {
      */
     @Test
     public void checkOutputPointsClass(){
-        new OutputPoints(null,0.0, "", 1);
-        new OutputPoints(null, MAX_VALUE, new Time(5L).getTime(),0);
-        new OutputPoints(null,MIN_VALUE,"", 5678);
+        new OutputPoints(null,0.0, "",null,null, 1);
+        new OutputPoints(null, MAX_VALUE,null,null, new Time(5L).getTime(),0);
+        new OutputPoints(null,MIN_VALUE,"",null,null, 5678);
     }
 }
 
