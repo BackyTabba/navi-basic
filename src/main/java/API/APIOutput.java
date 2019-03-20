@@ -112,16 +112,16 @@ public class APIOutput {
     public List<OutputPoints>toPoints()
     {
         List<OutputPoints> punkteListe = new ArrayList<OutputPoints>();
-        for(int i = 0; i < this.routenStruktur.size();i++)
+        for(int i = 0; i < this.routenStruktur.size()-1;i++)
         {
             String text = this.getRoutenStruktur().get(i);
-            Time zeit = this.getStrukturtime().get(i);
+            String zeit = this.getStrukturtime().get(i).getTime();
             double distanz = this.getStrukturdistance().get(i);
-            OutputPoints punkt = new OutputPoints(text,distanz,zeit);
+            OutputPoints punkt = new OutputPoints(text,distanz,zeit,i);
 
             punkteListe.add(i, punkt);
         }
-        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime());
+        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),this.routenStruktur.size()+1);
         punkteListe.add(last);
         return punkteListe;
     }

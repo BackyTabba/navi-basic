@@ -12,7 +12,7 @@ public main(){
      *API.UserInteraction kennt die ganze Zeit das API.APIOutput Objekt, darum kann die Klasse das auch zurueck geben.
      */
     }
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 
         Long mil = 1040701L;
         Time time = new Time(mil);
@@ -24,4 +24,5 @@ public main(){
 
 
     }
+     */
 }
