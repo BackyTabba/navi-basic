@@ -50,18 +50,23 @@ public class Input
 
         //If start is not precise, give options to the user.
         if(search && !breaker){
-            System.out.println("Bitte warten, Vorschläge werden geladen.");
+            System.out.println("Bitte warten, Vorschläge werden gesucht.");
             List<String> auswahl = UserInteraction.getList(start);
-            for(int i = 0; i < auswahl.size(); i++)
-            {
-                System.out.printf("%-4s %s \n", (i+1)+":", auswahl.get(i));
+            if(auswahl.size() != 0) {
+                for (int i = 0; i < auswahl.size(); i++) {
+                    System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
+                }
+                System.out.print("Bitte Vorschlagsnummer angeben: ");
+                System.out.println("");
+                int index = sc.nextInt() - 1;
+                System.out.println(auswahl.get(index));
+                start = auswahl.get(index);
+                sc.nextLine();
+            }else{
+                System.out.println("Leider konnten keine vorschläge für die Anfrage gestellt werden.\n Das Programm wird neu gestartet...");
+                main(new String[0]);
+                breaker = true;
             }
-            System.out.print("Bitte Vorschlagsnummer angeben: ");
-            System.out.println("");
-            int index = sc.nextInt()-1;
-            System.out.println(auswahl.get(index));
-            start = auswahl.get(index);
-            sc.nextLine();
         }
 
         //Asking for input "ziel"
@@ -96,17 +101,23 @@ public class Input
 
         //If ziel is not precise, give options to the user.
         if(search && !breaker) {
-            System.out.println("Bitte warten, Vorschläge werden geladen.");
+            System.out.println("Bitte warten, Vorschläge werden gesucht.");
             List<String> auswahl = UserInteraction.getList(ziel);
-            for (int i = 0; i < auswahl.size(); i++) {
-                System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
+            if(auswahl.size() != 0) {
+                for (int i = 0; i < auswahl.size(); i++) {
+                    System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
+                }
+                System.out.print("Bitte Vorschlagsnummer angeben: ");
+                System.out.println("");
+                int index = sc.nextInt() - 1;
+                System.out.println(auswahl.get(index));
+                ziel = auswahl.get(index);
+                sc.nextLine();
+            }else{
+                System.out.println("Leider konnten keine vorschläge für die Anfrage gestellt werden.\n Das Programm wird neu gestartet...");
+                main(new String[0]);
+                breaker = true;
             }
-            System.out.print("Bitte Vorschlagsnummer angeben: ");
-            System.out.println("");
-            int index = sc.nextInt() - 1;
-            System.out.println(auswahl.get(index));
-            ziel = auswahl.get(index);
-            sc.nextLine();
         }
 
         //Asks for a "fahrzeug"
@@ -169,6 +180,5 @@ public class Input
         System.out.println(Route.getTotalDistanceInKilometres());
         System.out.print("Reisezeit: ");
         System.out.println(Route.getTotalTime().getTime());
-
     }
 }
