@@ -86,6 +86,7 @@ public class Input
                     }
                     System.err.print("Ich beende mich jetzt trotzdem.");
                 }
+                breaker = true;
             }
             if (nrOfWords == 1) search = true;
             if (nrOfWords == 2) search = false;
