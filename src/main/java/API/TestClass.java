@@ -3,11 +3,17 @@ package main.java.API;
 
 import com.graphhopper.directions.api.client.model.GeocodingResponse;
 import com.graphhopper.directions.api.client.model.RouteResponse;
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.xml.bind.annotation.XmlSeeAlso;
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Stack;
+import java.util.Vector;
 
 import static java.lang.Float.MAX_VALUE;
 import static java.lang.Float.MIN_VALUE;
@@ -154,7 +160,7 @@ public class TestClass {
 
     /**
      * Testing UserInteraction class.
-     * case1: testing Konstruktor with 0.0,0.0,0.0,0.0,new String
+     * case1: calling Konstruktor with 0.0,0.0,0.0,0.0,new String
      * case2: calling konstruktor with MIN_VALUE,..., empty String.
      * case3: calling konstruktor with MAX_VALUE,..., nonsense String.
      * case4: calling konstruktor with new String,...,....
@@ -178,4 +184,54 @@ public class TestClass {
         new UserInteraction("","","").getOutput();
     }
 
+    /**
+     * Testing XmlChanger class.
+     * case1: calling .ichMachXML(List<OutputPoints>) with null, empty ArrayList, empty LinkedList, empty Vector, empty Stack.
+     */
+    @Test
+    public void checkXmlChangerClass(){
+        XmlChanger.ichMachXML(null);
+        XmlChanger.ichMachXML(new ArrayList<OutputPoints>());
+        XmlChanger.ichMachXML(new LinkedList<OutputPoints>());
+        XmlChanger.ichMachXML(new Vector<OutputPoints>());
+        XmlChanger.ichMachXML(new Stack<OutputPoints>());
+    }
+
+    /**
+     * Testing OutputPoints class.
+     * case1: calling konstruktor with null, zero, null.
+     * case2: calling konstruktor with empty String, maximal double value, Time object.
+     * case3: calling konstruktor wit nonsense String, minimal double value, Time object.
+     * case4: calling .getText()
+     */
+    @Test
+    public void checkOutputPointsClass(){
+        new OutputPoints(null, 0.0, null);
+        new OutputPoints("", MAX_VALUE, new Time(5L));
+        new OutputPoints("abcde", MIN_VALUE, new Time(5L)).getText();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
