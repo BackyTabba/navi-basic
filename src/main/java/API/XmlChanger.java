@@ -29,7 +29,8 @@ public class XmlChanger {
         try
         {
             String userhome = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
-            String filename = userhome+ File.separator+liste.get(0).getStraße()+" nach "+liste.get(liste.size()-1).getStraße()+".xml";
+            List<OutputPoints> druck = lastStreet(liste);
+            String filename = userhome+ File.separator+druck.get(0).getStraße()+" nach "+liste.get(druck.size()-2).getStraße()+".xml";
             FileOutputStream fos = new FileOutputStream(filename);
 
             xs.toXML(liste, fos);
@@ -43,6 +44,18 @@ public class XmlChanger {
             System.err.println("The given object should not be null.");
         }
 
+    }
+
+    private static List<OutputPoints> lastStreet(List<OutputPoints> list)
+    {
+        for(int i = 1; i<list.size()-1; i++)
+        {
+            if (list.get(i).getStraße() == null || list.get(i).getStraße().equals("") ) {
+                list.get(i).setStraße(list.get(i - 1).getStraße());
+                System.out.println(i+" angepasst");
+            }
+        }
+        return list;
     }
 }
 

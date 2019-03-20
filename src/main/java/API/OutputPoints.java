@@ -1,5 +1,7 @@
 package main.java.API;
 
+import java.util.List;
+
 public class OutputPoints {
 
     private int schritt;
@@ -31,4 +33,6 @@ public class OutputPoints {
     public void setStraße(String straße) {
         this.straße = straße;
     }
+
+
 }
