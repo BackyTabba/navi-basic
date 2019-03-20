@@ -16,7 +16,7 @@ public class Input
      * Then you will get printed version of the description of route and the total time and distance travelled
      * @param args
      */
-    public static void main(String[] args)throws IOException, InterruptedException {
+    public static void main(String[] args){
 
         //Asking for input "start"
         Scanner sc = new Scanner(System.in);
