@@ -19,6 +19,8 @@ public class APIOutput {
     private ArrayList<String> routenStruktur;
     private ArrayList<Double> strukturdistance;
     private ArrayList<Time> strukturtime;
+    private ArrayList<String> strukturBemerkung;
+    private ArrayList<String> strukturStraße;
     private Time totalTime;
     private double totalDistanceInMetres;
     private double totalDistanceInKilometres;
@@ -109,6 +111,22 @@ public class APIOutput {
         this.totalDistanceInKilometres = pTotalDistanceInKilometres;
     }
 
+    public void setStrukturBemerkung(ArrayList<String> strukturBemerkung) {
+        this.strukturBemerkung = strukturBemerkung;
+    }
+
+    public ArrayList<String> getStrukturBemerkung() {
+        return strukturBemerkung;
+    }
+
+    public void setStrukturStraße(ArrayList<String> strukturStraße) {
+        this.strukturStraße = strukturStraße;
+    }
+
+    public ArrayList<String> getStrukturStraße() {
+        return strukturStraße;
+    }
+
     public List<OutputPoints>toPoints()
     {
         List<OutputPoints> punkteListe = new ArrayList<OutputPoints>();
@@ -117,11 +135,13 @@ public class APIOutput {
             String text = this.getRoutenStruktur().get(i);
             String zeit = this.getStrukturtime().get(i).getTime();
             double distanz = this.getStrukturdistance().get(i);
-            OutputPoints punkt = new OutputPoints(text,distanz,zeit,i);
+            String straße = this.getStrukturStraße().get(i);
+            String bemerkung = this.getStrukturBemerkung().get(i);
+            OutputPoints punkt = new OutputPoints(text,distanz,zeit,straße,bemerkung,i);
 
             punkteListe.add(i, punkt);
         }
-        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),this.routenStruktur.size()+1);
+        OutputPoints last = new OutputPoints("Gesamt",this.getTotalDistanceInKilometres(),this.getTotalTime().getTime(),null,null,this.routenStruktur.size()+1);
         punkteListe.add(last);
         return punkteListe;
     }
