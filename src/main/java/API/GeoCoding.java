@@ -35,7 +35,7 @@ public class GeoCoding {
             return result.getHits();
 
         } catch (ApiException e) {
-            System.err.println("An Critical error occured in the Response by Graph Hopper.\n Please check the input!");            //e.printStackTrace();
+            System.err.println("An Critical error occured in the Response by Graph Hopper.\n Please check the input!");
             return null;
         }
     }
