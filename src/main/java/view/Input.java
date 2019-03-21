@@ -59,6 +59,9 @@ public class Input
             List<String> auswahl = startList.get(0);
             if(auswahl.size() != 0) {
                 for (int i = 0; i < auswahl.size(); i++) {
+                    try{
+                        Thread.sleep(100);
+                    }catch(Exception e){}
                     System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
                 }
                 System.out.print("Bitte Vorschlagsnummer angeben: ");
@@ -92,7 +95,7 @@ public class Input
                 if(input.equals("j")) main(new String[0]);
                 else if(!input.equals("n")) {
                     while(!input.equals("j") && !input.equals("n")) {
-                        System.out.println("Das machst du doch extra! Ich lass mich aber nicht veräppeln! Du versuchst das jetzt nocheinmal!");
+                        System.out.println("Das Programm akzeptiert nur 'j' oder 'n'!");
                         input = sc.nextLine();
                     }
                     System.err.print("Ich beende mich jetzt trotzdem.");
@@ -112,6 +115,9 @@ public class Input
             List<String> auswahl = zielList.get(0);
             if(auswahl.size() != 0) {
                 for (int i = 0; i < auswahl.size(); i++) {
+                    try{
+                        Thread.sleep(50);
+                    }catch(Exception e){}
                     System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
                 }
                 System.out.print("Bitte Vorschlagsnummer angeben: ");
@@ -178,6 +184,9 @@ public class Input
 
         for (int i = 0; i < Route.getRoutenStruktur().size() - 1; i++)
         {
+            try {
+                Thread.sleep(150);
+            }catch(Exception e){}
             String a = i + ":";
             String b = Route.getStrukturdistance().get(i).intValue() + " m";
             String c = Route.getStrukturtime().get(i).getTime();
