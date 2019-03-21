@@ -52,10 +52,10 @@ public class UserInteraction{
 
     }
 
-    public UserInteraction(String x, String y, String vehicle){
+    public UserInteraction(String x, String y, String vehicle, String druckA, String druckB) {
 
-            Connection request = new Connection(this.route, GeoCoding.geocode(x), GeoCoding.geocode(y), vehicle);
-            XmlChanger.ichMachXML(this.route.toPoints(),x,y);
+            Connection request = new Connection(this.route, x, y, vehicle);
+            XmlChanger.ichMachXML(this.route.toPoints(), druckA, druckB);
     }
 
     /**
@@ -65,13 +65,19 @@ public class UserInteraction{
         return route;
     }
 
-    public static List<String> getList(String f)
+
+
+    public static ArrayList<ArrayList<String>> getList( String f)
     {
         List<GeocodingLocation> results = GeoCoding.getResult(f);
-        List<String> rueckgabe = new ArrayList<String>();
+        ArrayList<ArrayList<String>> rueckgabe = new ArrayList<ArrayList<String>>();
+        ArrayList<String> rueckgabePrint = new ArrayList<String>();
+        ArrayList<String> rueckgabePoints = new ArrayList<String>();
 
         for (int i = 0; i < results.size();i++)
         {
+            rueckgabePoints.add(i, results.get(i).getPoint().getLat()+","+results.get(i).getPoint().getLng());
+
             String temp= results.get(i).getName();
             if (results.get(i).getStreet() != null) temp=temp+", "+results.get(i).getStreet();
             if (results.get(i).getHousenumber() != null) temp=temp+" "+results.get(i).getHousenumber();
@@ -80,8 +86,10 @@ public class UserInteraction{
             if (results.get(i).getCity() == null && results.get(i).getPostcode() != null) temp = temp+" "+results.get(i).getName();
             if (results.get(i).getCountry() != null) temp=temp+", "+results.get(i).getCountry();
 
-            rueckgabe.add(i ,temp);
+            rueckgabePrint.add(i ,temp);
         }
+        rueckgabe.add(0, rueckgabePrint);
+        rueckgabe.add(1,rueckgabePoints);
 
         return  rueckgabe;
     }

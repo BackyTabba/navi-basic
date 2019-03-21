@@ -168,8 +168,8 @@ public class TestClass {
      * case5: calling konstruktor wit nonsense String,...,.....
      * case6: calling method .getOutput();
      */
-    @Test
-    public void checkUserInteractionClass(){
+
+   /* public void checkUserInteractionClass(){
 
         //Konstruktor (double, double, double, double, String)
         new UserInteraction(0.0, 0.0, 0.0,0.0,  new String());
@@ -183,7 +183,7 @@ public class TestClass {
 
         //Method getOutput
         new UserInteraction("","","").getOutput();
-    }
+    }*/
 
     /**
      * Testing XmlChanger class.

@@ -36,6 +36,7 @@ public class GeoCoding {
 
         } catch (ApiException e) {
             System.err.println("An Critical error occured in the Response by Graph Hopper.\n Please check the input!");
+            System.err.println(e.toString());
             return null;
         }
     }
@@ -49,13 +50,22 @@ public class GeoCoding {
 
     {
         if(adress != null && !adress.equals("")) {
-            GeocodingPoint punkt = getResult(adress).get(0).getPoint();
-            String x = punkt.getLat().toString();
-            String y = punkt.getLng().toString();
 
-            String coordinates = x + "," + y;
+                 System.out.println(adress);
+                 System.out.println(getResult(adress));
+                 System.out.println(getResult(adress).size());
+                 System.out.println(getResult(adress).get(0));
+                 System.out.println(getResult(adress).get(0).getPoint());
+                 String[] split = adress.split(",");
+                 GeocodingPoint punkt = getResult(adress).get(0).getPoint();
+                 String x = punkt.getLat().toString();
+                 String y = punkt.getLng().toString();
 
-            return coordinates;
+                 String coordinates = x + "," + y;
+
+                 return coordinates;
+
+
         }else{
             System.err.println("The String adress should contain informations and can't be null or empty.");
             return null;

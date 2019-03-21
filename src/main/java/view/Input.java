@@ -1,6 +1,7 @@
 package main.java.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import main.java.API.*;
@@ -23,6 +24,9 @@ public class Input
         System.out.println("Bitte geben sie ihre Startadresse an.");
         System.out.print("Start: ");
         String start = sc.nextLine();
+        String startName = null;
+        String zielName = null;
+
 
         //Asks if start is precise or not
         boolean search = false;
@@ -51,7 +55,8 @@ public class Input
         //If start is not precise, give options to the user.
         if(search && !breaker){
             System.out.println("Bitte warten, Vorschläge werden gesucht.");
-            List<String> auswahl = UserInteraction.getList(start);
+            ArrayList<ArrayList<String>> startList = UserInteraction.getList(start);
+            List<String> auswahl = startList.get(0);
             if(auswahl.size() != 0) {
                 for (int i = 0; i < auswahl.size(); i++) {
                     System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
@@ -60,7 +65,8 @@ public class Input
                 System.out.println("");
                 int index = sc.nextInt() - 1;
                 System.out.println(auswahl.get(index));
-                start = auswahl.get(index);
+                startName = startList.get(0).get(index);
+                start = startList.get(1).get(index);
                 sc.nextLine();
             }else{
                 System.out.println("Leider konnten keine vorschläge für die Anfrage gestellt werden.\n Das Programm wird neu gestartet...");
@@ -102,7 +108,8 @@ public class Input
         //If ziel is not precise, give options to the user.
         if(search && !breaker) {
             System.out.println("Bitte warten, Vorschläge werden gesucht.");
-            List<String> auswahl = UserInteraction.getList(ziel);
+            ArrayList<ArrayList<String>> zielList = UserInteraction.getList(ziel);
+            List<String> auswahl = zielList.get(0);
             if(auswahl.size() != 0) {
                 for (int i = 0; i < auswahl.size(); i++) {
                     System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
@@ -111,7 +118,8 @@ public class Input
                 System.out.println("");
                 int index = sc.nextInt() - 1;
                 System.out.println(auswahl.get(index));
-                ziel = auswahl.get(index);
+                zielName = zielList.get(0).get(index);
+                ziel = zielList.get(1).get(index);
                 sc.nextLine();
             }else{
                 System.out.println("Leider konnten keine vorschläge für die Anfrage gestellt werden.\n Das Programm wird neu gestartet...");
@@ -143,8 +151,8 @@ public class Input
 
             //If everything is clear, call exec.
             if ((versuche != 0) && ((vehicle.equals("car")) || (vehicle.equals("foot")) || (vehicle.equals("bike")) || (vehicle.equals("scooter")))) {
-                System.out.println("start: " + start + " Ziel: " + ziel + " vehicle: " + vehicle);
-                exec(start, ziel, vehicle);
+                System.out.println("start: " + startName + " Ziel: " + zielName + " vehicle: " + vehicle);
+                exec(start, ziel, vehicle, startName, zielName);
             }
         }
     }
@@ -160,9 +168,9 @@ public class Input
      * @param ziel The adress of your planned goalpoint as a String
      * @param fahrzeug The mode of transportation you wish to use as a String
      */
-    private static void exec(String start, String ziel, String fahrzeug)
+    private static void exec(String start, String ziel, String fahrzeug,String startname, String zielname )
     {
-        UserInteraction anfrage = new UserInteraction(start, ziel, fahrzeug);
+        UserInteraction anfrage = new UserInteraction(start, ziel, fahrzeug, startname, zielname);
         System.out.println("marker");
         APIOutput Route = anfrage.getOutput();
         System.out.println("Wegbeschreibung: ");
