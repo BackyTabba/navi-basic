@@ -67,7 +67,7 @@ public class Input
             if(auswahl.size() != 0) {
                 for (int i = 0; i < auswahl.size(); i++) {
                     try{
-                        Thread.sleep(100);
+                        Thread.sleep(50);
                     }catch(Exception e){}
                     System.out.printf("%-4s %s \n", (i + 1) + ":", auswahl.get(i));
                 }
@@ -174,6 +174,7 @@ public class Input
             //If everything is clear, call exec.
             if ((versuche != 0) && ((vehicle.equals("car")) || (vehicle.equals("foot")) || (vehicle.equals("bike")) || (vehicle.equals("scooter")))) {
                 System.out.println("start: " + startName + " Ziel: " + zielName + " vehicle: " + vehicle);
+                System.out.println("startK: " + start + " zielK: " + ziel);
                 exec(start, ziel, vehicle, startName, zielName);
             }
         }
@@ -189,6 +190,7 @@ public class Input
     private static void exec(String start, String ziel, String fahrzeug,String startname, String zielname )
     {
         UserInteraction anfrage = new UserInteraction(start, ziel, fahrzeug, startname, zielname);
+        System.out.println("start: " + start + " ziel: " + ziel + " startname: " + startname + " zielname: " + zielname);
         System.out.println("marker");
         APIOutput Route = anfrage.getOutput();
         System.out.println("Wegbeschreibung: ");
@@ -197,7 +199,7 @@ public class Input
         for (int i = 0; i < Route.getRoutenStruktur().size() - 1; i++)
         {
             try {
-                Thread.sleep(150);
+                Thread.sleep(7);
             }catch(Exception e){}
             String a = i + ":";
             String b = Route.getStrukturdistance().get(i).intValue() + " m";
