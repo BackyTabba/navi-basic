@@ -146,7 +146,7 @@ public class TestClass {
      * case2: calling .getResult(String) with newString() / "" / nonsense String.
      */
     @Test
-    public void checkGeoCodingClass(){
+    /*public void checkGeoCodingClass(){
 
         //Method .geocode(String)
         GeoCoding.geocode(new String());
@@ -157,7 +157,7 @@ public class TestClass {
         GeoCoding.getResult(new String());
         GeoCoding.getResult("");
         GeoCoding.getResult("abcde");
-    }
+    }*/
 
     /**
      * Testing UserInteraction class.
@@ -189,7 +189,7 @@ public class TestClass {
      * Testing XmlChanger class.
      * case1: calling .ichMachXML(List<OutputPoints>) with null, empty ArrayList, empty LinkedList, empty Vector, empty Stack.
      */
-    @Test
+
     public void checkXmlChangerClass(){
         XmlChanger.ichMachXML(null,null,null);
         XmlChanger.ichMachXML(new ArrayList<OutputPoints>(),null,null);
