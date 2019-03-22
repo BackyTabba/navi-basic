@@ -48,9 +48,16 @@ public class Input
             breaker = true;
         }
         if(nrOfWords == 1) search = true;
-        if(nrOfWords == 2) search = false;
+        if(nrOfWords == 2) search = true;
         if(nrOfWords == 3) search = true;
         if(nrOfWords >= 4) search = false;
+
+        if(!search)
+        {
+            ArrayList<ArrayList<String>> startList = UserInteraction.getList(start);
+            startName = startList.get(0).get(0);
+            start = startList.get(1).get(0);
+        }
 
         //If start is not precise, give options to the user.
         if(search && !breaker){
@@ -78,6 +85,8 @@ public class Input
             }
         }
 
+
+
         //Asking for input "ziel"
         String ziel = "";
         if(!breaker) {
@@ -103,9 +112,16 @@ public class Input
                 breaker = true;
             }
             if (nrOfWords == 1) search = true;
-            if (nrOfWords == 2) search = false;
+            if (nrOfWords == 2) search = true;
             if (nrOfWords == 3) search = true;
             if (nrOfWords >= 4) search = false;
+        }
+
+        if(!search)
+        {
+            ArrayList<ArrayList<String>> zielList = UserInteraction.getList(ziel);
+            zielName = zielList.get(0).get(0);
+            ziel = zielList.get(1).get(0);
         }
 
         //If ziel is not precise, give options to the user.
