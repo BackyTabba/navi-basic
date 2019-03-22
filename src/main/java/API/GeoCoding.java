@@ -41,34 +41,5 @@ public class GeoCoding {
         }
     }
 
-    /**
-     * A method for the determination of the coordinates of an specific adress.
-     * @param adress The adress for which you want the coordinates as a String
-     * @return the coordinates as String in the format "Latitude,Longitude"
-     */
-    public static String geocode(String adress)
 
-    {
-        if(adress != null && !adress.equals("")) {
-
-                 System.out.println(adress);
-                 System.out.println(getResult(adress));
-                 System.out.println(getResult(adress).size());
-                 System.out.println(getResult(adress).get(0));
-                 System.out.println(getResult(adress).get(0).getPoint());
-                 String[] split = adress.split(",");
-                 GeocodingPoint punkt = getResult(adress).get(0).getPoint();
-                 String x = punkt.getLat().toString();
-                 String y = punkt.getLng().toString();
-
-                 String coordinates = x + "," + y;
-
-                 return coordinates;
-
-
-        }else{
-            System.err.println("The String adress should contain informations and can't be null or empty.");
-            return null;
-        }
-    }
 }
